@@ -4558,11 +4558,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\Prog\\CMDB\\CMDB\\CMDB\\CMDB.csproj",
+      "projectUniqueName": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB.csproj",
       "projectName": "CMDB",
-      "projectPath": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\Prog\\CMDB\\CMDB\\CMDB\\CMDB.csproj",
+      "projectPath": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB.csproj",
       "packagesPath": "C:\\Users\\dawid.skrzypacz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\Prog\\CMDB\\CMDB\\CMDB\\obj\\",
+      "outputPath": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dawid.skrzypacz\\AppData\\Roaming\\NuGet\\NuGet.Config",

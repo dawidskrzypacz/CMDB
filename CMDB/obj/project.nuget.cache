@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "82xCUNgFC7Tt4qr2oztFwkrh//34yXsvSnYn5T0PfH3ycasP+z3thTa2aiPI85uI6jzViAkybLhvGPQfPjRO2w==",
+  "dgSpecHash": "cYd2bf1kDeOch9ozSDGX212yZWl65ZI/jKJZ/4zXIsEJ2uhQZ8c6h5ovhXy1uVr4/sLvqCOMVgH33ymJEWwKvQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\Prog\\CMDB\\CMDB\\CMDB\\CMDB.csproj",
+  "projectFilePath": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dawid.skrzypacz\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\dawid.skrzypacz\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
