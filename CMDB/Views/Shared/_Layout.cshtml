@@ -7,23 +7,57 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CMDB.styles.css" asp-append-version="true" />
+    <style>
+        .bg-mine
+        {
+            background-color: #f1efe7;
+        }
+        .nav-item-mine
+        {
+            margin-right: 20px;
+        }
+        .nav-item-mine:hover
+        {
+            color: black; /* Change 'font-color' to 'color' */
+            text-decoration: underline;
+            font-weight: bold;
+            transition: all 0.1s ease; /* Smooth transition for color change */
+            
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 bg-mine">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CMDB</a>
+                
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/logo.png" alt="Logo" width="350px" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <li class="nav-item nav-item-mine">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Employees</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li class="nav-item nav-item-mine">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Computers</a>
+                        </li>
+                        <li class="nav-item nav-item-mine">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Phones</a>
+                        </li>
+                        <li class="nav-item nav-item-mine">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Accessories</a>
+                        </li>
+                        <li class="nav-item nav-item-mine">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Servers</a>
+                        </li>
+                        <li class="nav-item nav-item-mine">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">IT Infrastructure</a>
+                        </li>
+                        <li class="nav-item nav-item-mine">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Reports</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -37,14 +71,44 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+
+    <footer class="border-top footer text-muted bg-mine">
         <div class="container">
-            &copy; 2024 - CMDB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row justify-content-between align-items-center">
+                <div class="col-auto">
+                    &copy; 2024 - CMDB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+                <div class="col-auto">
+                    <p class="mb-0" id="connectionStatus" style="font-size: 14px;"></p>
+                </div>
+            </div>
         </div>
     </footer>
+
+
+    @* Database connection check using DatabaseController and AJAX  *@
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '/Database/CheckConnection',
+                type: 'GET',
+                success: function (response) {
+                    $('#connectionStatus').text(response);
+                    $('#connectionStatus').css('color', 'green');
+                    $('#connectionStatus').prepend('<span style="color: green;">&#8226;</span> ');
+                },
+                error: function (xhr, status, error) {
+                    $('#connectionStatus').text('Error: ' + xhr.responseText);
+                    $('#connectionStatus').css('color', 'red');
+                    $('#connectionStatus').prepend('<span style="color: red;">&#8226;</span> ');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

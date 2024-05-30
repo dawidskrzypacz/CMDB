@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XC8L2biaPMLN4ytpJ4nZV6iYAIBxetG4XOaKK7MBvDk=",
+  "Hash": "LNKeLl2itKgnz3K0wRZVn6Ak+uKkHy/AGbOFYA3Ie/M=",
   "Source": "CMDB",
   "BasePath": "_content/CMDB",
   "Mode": "Default",
@@ -2333,6 +2333,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\wwwroot\\logo.png",
+      "SourceId": "CMDB",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\wwwroot\\",
+      "BasePath": "_content/CMDB",
+      "RelativePath": "logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\logo.png"
     }
   ]
 }

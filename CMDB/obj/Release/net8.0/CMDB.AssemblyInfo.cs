@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-CMDB-6d486e30-2e66-454e-816e-851052dc14f5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("CMDB")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f749492654845e2a61aa706f5a19e3606d87d4b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("CMDB")]
