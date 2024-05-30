@@ -30,8 +30,32 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Accessories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzb3JpZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Accessories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzb3JpZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Accessories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzb3JpZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Accessories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzb3JpZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Accessories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzb3JpZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Computers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHV0ZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Computers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHV0ZXJzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Computers/Details.cshtml]
@@ -46,6 +70,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcHV0ZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Employees/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Employees/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Employees/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Employees/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Employees/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -56,6 +96,66 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Infrastructure/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mcmFzdHJ1Y3R1cmVcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Infrastructure/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mcmFzdHJ1Y3R1cmVcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Infrastructure/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mcmFzdHJ1Y3R1cmVcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Infrastructure/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mcmFzdHJ1Y3R1cmVcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Infrastructure/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5mcmFzdHJ1Y3R1cmVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Phones/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvbmVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Phones/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvbmVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Phones/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvbmVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Phones/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvbmVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Phones/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhvbmVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Servers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmVyc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Servers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmVyc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Servers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Servers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Servers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmVyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/dawid.skrzypacz/OneDrive - summ-it s.a/Dokumenty/Studia/CMDB/CMDB/Views/Shared/Error.cshtml]

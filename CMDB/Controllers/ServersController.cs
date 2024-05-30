@@ -3,27 +3,27 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CMDB.Controllers
 {
-    public class EmployeesController : Controller
+    public class ServersController : Controller
     {
-        // GET: EmployeesController
+        // GET: ServersController
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: EmployeesController/Details/5
+        // GET: ServersController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: EmployeesController/Create
+        // GET: ServersController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: EmployeesController/Create
+        // POST: ServersController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -38,13 +38,13 @@ namespace CMDB.Controllers
             }
         }
 
-        // GET: EmployeesController/Edit/5
+        // GET: ServersController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: EmployeesController/Edit/5
+        // POST: ServersController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -59,13 +59,13 @@ namespace CMDB.Controllers
             }
         }
 
-        // GET: EmployeesController/Delete/5
+        // GET: ServersController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: EmployeesController/Delete/5
+        // POST: ServersController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
