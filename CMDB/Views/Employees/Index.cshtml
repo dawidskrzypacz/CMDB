@@ -1,6 +1,66 @@
-﻿@{
+﻿@model IEnumerable<CMDB.Models.Employees>
+@{
     ViewData["Title"] = "Employees Module - Index";
 }
 
 
 <h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PracownikID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwisko)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stanowisko)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataZatrudnienia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefon)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PracownikID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Imie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nazwisko)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stanowisko)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataZatrudnienia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefon)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PracownikID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PracownikID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PracownikID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
