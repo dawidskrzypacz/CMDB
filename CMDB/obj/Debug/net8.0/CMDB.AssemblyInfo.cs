@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CMDB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b57bd212c66c5122ce3149805e124130d5cc8e88")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+88c0099f828a3bc3cb8a98a3702962a6016966cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("CMDB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CMDB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
