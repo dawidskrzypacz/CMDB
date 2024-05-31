@@ -2,6 +2,8 @@
 using CMDB.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using CMDB.Models.DBEntities;
+
 
 namespace CMDB.Controllers
 {
@@ -39,73 +41,48 @@ namespace CMDB.Controllers
             return View(employeeList);
         }
 
-        // GET: EmployeesController/Details/5
-        public ActionResult Details(int id)
+
+        [HttpGet]
+        public IActionResult Create()
         {
             return View();
         }
-
-        // GET: EmployeesController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: EmployeesController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+            // GET: EmployeesController/Create
+            [HttpPost]
+        public IActionResult Create(PracownicyViewModel employeeData)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    var employee = new Pracownicy()
+                    {
+                        PracownikID = employeeData.PracownikID,
+                        Imie = employeeData.Imie,
+                        Nazwisko = employeeData.Nazwisko,
+                        Stanowisko = employeeData.Stanowisko,
+                        DataZatrudnienia = employeeData.DataZatrudnienia,
+                        Telefon = employeeData.Telefon
+                    };
+                    _context.Pracownicy.Add(employee);
+                    _context.SaveChanges();
+                    TempData["successMessage"] = "Employee created";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["errorMessage"] = "Model data is not valid.";
+                    return View();
+                }
             }
-            catch
+            catch (Exception ex)
             {
+
+                TempData["errorMessage"] = ex.Message;
                 return View();
             }
         }
-
-        // GET: EmployeesController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: EmployeesController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: EmployeesController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: EmployeesController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+     
+        
     }
 }

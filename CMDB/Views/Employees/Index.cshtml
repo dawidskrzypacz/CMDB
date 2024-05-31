@@ -2,9 +2,28 @@
 
 @{
 	ViewData["Title"] = "Employee Details";
+	var successMessage = TempData["successMessage"]?.ToString();
+	var errorMessage = TempData["errorMessage"]?.ToString();
 }
 
 <h3>@ViewData["Title"]</h3>
+@if(!string.IsNullOrWhiteSpace(successMessage))
+{
+<div class="alert alert-success">
+	<strong>Success! </strong>@successMessage
+<button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+</div>
+	
+}
+
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+	<div class="alert alert-danger">
+		<strong>Error! </strong>@errorMessage
+	<button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+	</div>
+
+}
 <form>
 	<button asp-action="Create" asp-controller="Employees" class="btn btn-primary mb-3">Create Employee</button>
 	<table class="table table-responsive table-hover table-bordered">
