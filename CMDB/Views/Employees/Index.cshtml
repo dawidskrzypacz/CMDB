@@ -1,66 +1,56 @@
-﻿@model IEnumerable<CMDB.Models.Employees>
+﻿@model List< CMDB.Models.PracownicyViewModel>
+
 @{
-    ViewData["Title"] = "Employees Module - Index";
+	ViewData["Title"] = "Employee Details";
 }
 
-
-<h1>@ViewData["Title"]</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PracownikID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Imie)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Nazwisko)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stanowisko)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataZatrudnienia)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefon)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PracownikID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Imie)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nazwisko)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Stanowisko)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataZatrudnienia)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telefon)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.PracownikID">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.PracownikID">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.PracownikID">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<h3>@ViewData["Title"]</h3>
+<form>
+	<button asp-action="Create" asp-controller="Employees" class="btn btn-primary mb-3">Create Employee</button>
+	<table class="table table-responsive table-hover table-bordered">
+		<thead>
+			<tr class="table-active">
+				<th>PracownikID</th>
+				<th>Imie</th>
+				<th>Nazwisko</th>
+				<th>Stanowisko</th>
+				<th>Data Zatrudnienia</th>
+				<th>Telefon</th>
+				<th>Akcje</th>
+			</tr>
+		</thead>
+		<tbody>
+			@if(Model != null && Model.Any())
+			{
+				@foreach (var employee in Model)
+				{
+					<tr>
+						<td>@employee.PracownikID</td>
+						<td>@employee.Imie</td>
+						<td>@employee.Nazwisko</td>
+						<td>@employee.Stanowisko</td>
+						<td>@employee.DataZatrudnienia</td>
+						<td>@employee.Telefon</td>
+						<td>
+							<div class="btnbtn-group btn-group-sm">
+								<a asp-controller="Employees" asp-action="Edit" asp-route-id="@employee.PracownikID" class="btn btn-primary">Edit</a>
+								<a asp-controller="Employees" asp-action="Details" asp-route-id="@employee.PracownikID" class="btn btn-primary">Details</a>
+								<a asp-controller="Employees" asp-action="Delete" asp-route-id="@employee.PracownikID" class="btn btn-danger">Delete</a>
+							</div>
+						</td>
+					</tr>
+				}
+			}
+			else
+			{
+				<tr>
+					<td colspan="6">
+						<div>
+							No Employees available at this moment!
+						</div>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</form>

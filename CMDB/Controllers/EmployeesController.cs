@@ -1,14 +1,42 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CMDB.DAL;
+using CMDB.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CMDB.Controllers
 {
     public class EmployeesController : Controller
     {
-        // GET: EmployeesController
-        public ActionResult Index()
+        private readonly EmployeesDbContext _context;
+        public EmployeesController(CMDB.DAL.EmployeesDbContext context)
         {
-            return View();
+            this._context = context;
+        }
+        // GET: EmployeesController
+        [HttpGet]
+        public IActionResult Index()
+        {
+            var employees = _context.Pracownicy.ToList();
+            List<PracownicyViewModel> employeeList = new List<PracownicyViewModel>();
+            if(employees != null)
+            {
+                foreach (var employee in employees)
+                {
+                    var EmployeeViewModel = new PracownicyViewModel()
+                    {
+						PracownikID = employee.PracownikID,
+                        Imie = employee.Imie,
+                        Nazwisko = employee.Nazwisko,
+                        Stanowisko = employee.Stanowisko,
+                        DataZatrudnienia = employee.DataZatrudnienia,
+                        Telefon = employee.Telefon
+					};
+                    employeeList.Add(EmployeeViewModel);
+
+				}
+                return View(employeeList);
+            }
+            return View(employeeList);
         }
 
         // GET: EmployeesController/Details/5
