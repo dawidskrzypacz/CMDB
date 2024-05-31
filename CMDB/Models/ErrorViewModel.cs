@@ -1,3 +1,5 @@
+using CMDB.Models.DBEntities;
+
 namespace CMDB.Models
 {
     public class ErrorViewModel
