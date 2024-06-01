@@ -1,83 +1,88 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CMDB.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using CMDB.Models.DBEntities;
+using CMDB.Data;
+
 
 namespace CMDB.Controllers
 {
     public class PhonesController : Controller
     {
-        // GET: PhonesController
-        public ActionResult Index()
+        private readonly PhonesDbContext _context;
+        public PhonesController(CMDB.Data.PhonesDbContext context)
+        {
+            this._context = context;
+        }
+        // GET: EmployeesController
+        [HttpGet]
+        public IActionResult Index()
+        {
+            var phones = _context.Telefony.ToList();
+            List<TelefonyViewModel> phoneList = new List<TelefonyViewModel>();
+            if (phones != null)
+            {
+                foreach (var phone in phones)
+                {
+                    var TelefonyViewModel = new TelefonyViewModel()
+                    {
+                        TelefonID =  phone.TelefonID,
+                        NumerTelefonu = phone.NumerTelefonu,
+                        Typ= phone.Typ,
+                        Producent = phone.Producent,
+                        DataZakupu = phone.DataZakupu,
+                        PracownikID = phone.PracownikID
+                    };
+                    phoneList.Add(TelefonyViewModel);
+
+                }
+                return View(phoneList);
+            }
+            return View(phoneList);
+        }
+
+
+        [HttpGet]
+        public IActionResult Create()
         {
             return View();
         }
-
-        // GET: PhonesController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: PhonesController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: PhonesController/Create
+        // GET: EmployeesController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public IActionResult Create(TelefonyViewModel phoneData)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (ModelState.IsValid)
+                {
+                    var phone = new Telefony()
+                    {
+                        TelefonID =  phoneData.TelefonID,
+                        NumerTelefonu = phoneData.NumerTelefonu,
+                        Typ= phoneData.Typ,
+                        Producent = phoneData.Producent,
+                        DataZakupu = phoneData.DataZakupu,
+                        PracownikID = phoneData.PracownikID
+                    };
+                    _context.Telefony.Add(phone);
+                    _context.SaveChanges();
+                    TempData["successMessage"] = "Phone created";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["errorMessage"] = "Model data is not valid.";
+                    return View();
+                }
             }
-            catch
+            catch (Exception ex)
             {
+
+                TempData["errorMessage"] = ex.Message;
                 return View();
             }
         }
 
-        // GET: PhonesController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
 
-        // POST: PhonesController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: PhonesController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: PhonesController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
