@@ -1,6 +1,74 @@
-﻿@{
-    ViewData["Title"] = "Servers Module - Index";
+﻿@model List<CMDB.Models.SerweryViewModel>
+
+@{
+    ViewData["Title"] = "Server Details";
+    var successMessage = TempData["successMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
 }
 
+<h3>@ViewData["Title"]</h3>
+@if (!string.IsNullOrWhiteSpace(successMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success! </strong>@successMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
 
-<h1>@ViewData["Title"]</h1>
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error! </strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<form>
+    <a asp-action="Create" asp-controller="Servers" class="btn btn-primary mb-3">Create Server</a>
+    <table class="table table-responsive table-hover table-bordered">
+        <thead>
+            <tr class="table-active">
+                <th>Serwer ID</th>
+                <th>Nazwa</th>
+                <th>Typ Serwera</th>
+                <th>Producent</th>
+                <th>Data Zakupu</th>
+                <th>Pracownik ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var server in Model)
+                {
+                    <tr>
+                        <td>@server.SerwerID</td>
+                        <td>@server.Nazwa</td>
+                        <td>@server.TypSerwera</td>
+                        <td>@server.Producent</td>
+                        <td>@server.DataZakupu</td>
+                        <td>@server.PracownikID</td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a asp-controller="Servers" asp-action="Edit" asp-route-id="@server.SerwerID" class="btn btn-primary">Edit</a>
+                                <a asp-controller="Servers" asp-action="Details" asp-route-id="@server.SerwerID" class="btn btn-primary">Details</a>
+                                <a asp-controller="Servers" asp-action="Delete" asp-route-id="@server.SerwerID" class="btn btn-danger">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="7">
+                        <div>
+                            No servers available at this moment!
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

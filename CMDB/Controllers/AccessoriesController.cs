@@ -1,83 +1,90 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CMDB.Data;
+using CMDB.Models.DBEntities;
+using CMDB.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CMDB.Controllers
 {
-    public class AccessoriesController : Controller
-    {
-        // GET: AccessoriesController
-        public ActionResult Index()
-        {
-            return View();
-        }
+	public class AccessoriesController : Controller
+	{
+		private readonly AccesoriesDbContext _context;
 
-        // GET: AccessoriesController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+		public AccessoriesController(CMDB.Data.AccesoriesDbContext context)
+		{
+			_context = context;
+		}
 
-        // GET: AccessoriesController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+		[HttpGet]
+		public IActionResult Index()
+		{
+			var accessories = _context.AkcesoriaKomputerowe.ToList();
+			var accessoryList = new List<AkcesoriaKomputeroweViewModel>();
 
-        // POST: AccessoriesController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+			if (accessories != null)
+			{
+				foreach (var accessory in accessories)
+				{
+					var accessoryViewModel = new AkcesoriaKomputeroweViewModel()
+					{
+						AkcesoriumID = accessory.AkcesoriumID,
+						Nazwa = accessory.Nazwa,
+						Typ = accessory.Typ,
+						Producent = accessory.Producent,
+						DataZakupu = accessory.DataZakupu,
+						PracownikID = accessory.PracownikID
+					};
 
-        // GET: AccessoriesController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+					accessoryList.Add(accessoryViewModel);
+				}
 
-        // POST: AccessoriesController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+				return View(accessoryList);
+			}
 
-        // GET: AccessoriesController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+			return View(accessoryList);
+		}
 
-        // POST: AccessoriesController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-    }
+		[HttpGet]
+		public IActionResult Create()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public IActionResult Create(AkcesoriaKomputeroweViewModel accessoryData)
+		{
+			try
+			{
+				if (ModelState.IsValid)
+				{
+					var accessory = new AkcesoriaKomputerowe()
+					{
+						Nazwa = accessoryData.Nazwa,
+						Typ = accessoryData.Typ,
+						Producent = accessoryData.Producent,
+						DataZakupu = accessoryData.DataZakupu,
+						PracownikID = accessoryData.PracownikID
+					};
+
+					_context.AkcesoriaKomputerowe.Add(accessory);
+					_context.SaveChanges();
+
+					TempData["successMessage"] = "Accessory created successfully.";
+					return RedirectToAction("Index");
+				}
+				else
+				{
+					TempData["errorMessage"] = "Model data is not valid.";
+					return View();
+				}
+			}
+			catch (Exception ex)
+			{
+				TempData["errorMessage"] = ex.Message;
+				return View();
+			}
+		}
+	}
 }

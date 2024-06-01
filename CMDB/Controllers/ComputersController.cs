@@ -1,83 +1,90 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CMDB.Data;
+using CMDB.Models.DBEntities;
+using CMDB.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CMDB.Controllers
 {
-    public class ComputersController : Controller
-    {
-        // GET: ComputersController
-        public ActionResult Index()
-        {
-            return View();
-        }
+	public class ComputersController : Controller
+	{
+		private readonly ComputersDbContext _context;
 
-        // GET: ComputersController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+		public ComputersController(ComputersDbContext context)
+		{
+			_context = context;
+		}
 
-        // GET: ComputersController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+		[HttpGet]
+		public IActionResult Index()
+		{
+			var computers = _context.Komputery.ToList();
+			var computerList = new List<KomputeryViewModel>();
 
-        // POST: ComputersController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+			if (computers != null)
+			{
+				foreach (var computer in computers)
+				{
+					var computerViewModel = new KomputeryViewModel()
+					{
+						KomputerID = computer.KomputerID,
+						Nazwa = computer.Nazwa,
+						TypKomputera = computer.TypKomputera,
+						Model = computer.Model,
+						DataZakupu = computer.DataZakupu,
+						PracownikID = computer.PracownikID
+					};
 
-        // GET: ComputersController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+					computerList.Add(computerViewModel);
+				}
 
-        // POST: ComputersController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+				return View(computerList);
+			}
 
-        // GET: ComputersController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+			return View(computerList);
+		}
 
-        // POST: ComputersController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-    }
+		[HttpGet]
+		public IActionResult Create()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public IActionResult Create(KomputeryViewModel computerData)
+		{
+			try
+			{
+				if (ModelState.IsValid)
+				{
+					var computer = new Komputery()
+					{
+						Nazwa = computerData.Nazwa,
+						TypKomputera = computerData.TypKomputera,
+						Model = computerData.Model,
+						DataZakupu = computerData.DataZakupu,
+						PracownikID = computerData.PracownikID
+					};
+
+					_context.Komputery.Add(computer);
+					_context.SaveChanges();
+
+					TempData["successMessage"] = "Computer created successfully.";
+					return RedirectToAction("Index");
+				}
+				else
+				{
+					TempData["errorMessage"] = "Model data is not valid.";
+					return View();
+				}
+			}
+			catch (Exception ex)
+			{
+				TempData["errorMessage"] = ex.Message;
+				return View();
+			}
+		}
+	}
 }
