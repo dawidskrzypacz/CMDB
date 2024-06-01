@@ -1,8 +1,8 @@
-﻿using CMDB.DAL;
-using CMDB.Models;
+﻿using CMDB.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CMDB.Models.DBEntities;
+using CMDB.Data;
 
 
 namespace CMDB.Controllers
@@ -10,7 +10,7 @@ namespace CMDB.Controllers
     public class EmployeesController : Controller
     {
         private readonly EmployeesDbContext _context;
-        public EmployeesController(CMDB.DAL.EmployeesDbContext context)
+        public EmployeesController(CMDB.Data.EmployeesDbContext context)
         {
             this._context = context;
         }
