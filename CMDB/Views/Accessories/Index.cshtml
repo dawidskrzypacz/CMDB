@@ -1,59 +1,75 @@
-﻿@model IEnumerable<CMDB.Models.DBEntities.AkcesoriaKomputerowe>
+﻿@model List< CMDB.Models.AkcesoriaKomputeroweViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+	ViewData["Title"] = "Accessories Details";
+	var successMessage = TempData["successMessage"]?.ToString();
+	var errorMessage = TempData["errorMessage"]?.ToString();
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nazwa)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Typ)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producent)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataZakupu)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PracownikID)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nazwa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Typ)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Producent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataZakupu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PracownikID)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AkcesoriumID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AkcesoriumID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AkcesoriumID">Delete</a>
-            </td>
-        </tr>
+<h3>@ViewData["Title"]</h3>
+@if(!string.IsNullOrWhiteSpace(successMessage))
+{
+<div class="alert alert-success">
+	<strong>Success! </strong>@successMessage
+<button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+</div>
+	
 }
-    </tbody>
-</table>
+
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+	<div class="alert alert-danger">
+		<strong>Error! </strong>@errorMessage
+	<button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+	</div>
+
+}
+<form>
+	<button asp-action="Create" asp-controller="Accessories" class="btn btn-primary mb-3">Create Accessory</button>
+	<table class="table table-responsive table-hover table-bordered">
+		<thead>
+			<tr class="table-active">
+				<th>AkcesoriumID</th>
+				<th>Nazwa</th>
+				<th>Typ</th>
+				<th>Producent</th>
+				<th>DataZakupu</th>
+				<th>PracownikID</th>
+				<th>Akcje</th>
+			</tr>
+		</thead>
+		<tbody>
+			@if(Model != null && Model.Any())
+			{
+				@foreach (var accessory in Model)
+				{
+					<tr>
+						<td>@accessory.AkcesoriumID</td>
+						<td>@accessory.Nazwa</td>
+						<td>@accessory.Typ</td>
+						<td>@accessory.Producent</td>
+						<td>@accessory.DataZakupu</td>
+						<td>@accessory.PracownikID</td>
+						<td>
+							<div class="btnbtn-group btn-group-sm">
+								<a asp-controller="Accessories" asp-action="Edit" asp-route-id="@accessory.AkcesoriumID" class="btn btn-primary">Edit</a>
+								<a asp-controller="Accessories" asp-action="Details" asp-route-id="@accessory.AkcesoriumID" class="btn btn-primary">Details</a>
+								<a asp-controller="Accessories" asp-action="Delete" asp-route-id="@accessory.AkcesoriumID" class="btn btn-danger">Delete</a>
+							</div>
+						</td>
+					</tr>
+				}
+			}
+			else
+			{
+				<tr>
+					<td colspan="6">
+						<div>
+							No Accessories available at this moment!
+						</div>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</form>
