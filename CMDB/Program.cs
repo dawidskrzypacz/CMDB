@@ -1,4 +1,5 @@
 using CMDB.Data;
+using CMDB.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,28 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 builder.Services.AddDbContext<CMDB.Data.PhonesDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
 ));
+builder.Services.AddDbContext<CMDB.Data.ServersDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
+builder.Services.AddDbContext<CMDB.Data.ServicesDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
+builder.Services.AddDbContext<CMDB.Data.IncydentsDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
+builder.Services.AddDbContext<CMDB.Data.AccesoriesDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
+builder.Services.AddDbContext<CMDB.Data.ComputersDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
+builder.Services.AddDbContext<CMDB.Data.SoftwareDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
+builder.Services.AddDbContext<CMDB.Data.NetworkingDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
+
 
 //builder.Services.AddSingleton(builder.Configuration);
 

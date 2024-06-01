@@ -1,83 +1,90 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CMDB.Data;
+using CMDB.Models.DBEntities;
+using CMDB.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CMDB.Controllers
 {
-    public class ServersController : Controller
-    {
-        // GET: ServersController
-        public ActionResult Index()
-        {
-            return View();
-        }
+	public class ServersController : Controller
+	{
+		private readonly ServersDbContext _context;
 
-        // GET: ServersController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+		public ServersController(ServersDbContext context)
+		{
+			_context = context;
+		}
 
-        // GET: ServersController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+		[HttpGet]
+		public IActionResult Index()
+		{
+			var servers = _context.Serwery.ToList();
+			var serverList = new List<SerweryViewModel>();
 
-        // POST: ServersController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+			if (servers != null)
+			{
+				foreach (var server in servers)
+				{
+					var serverViewModel = new SerweryViewModel()
+					{
+						SerwerID = server.SerwerID,
+						Nazwa = server.Nazwa,
+						TypSerwera = server.TypSerwera,
+						Producent = server.Producent,
+						DataZakupu = server.DataZakupu,
+						PracownikID = server.PracownikID
+					};
 
-        // GET: ServersController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+					serverList.Add(serverViewModel);
+				}
 
-        // POST: ServersController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+				return View(serverList);
+			}
 
-        // GET: ServersController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+			return View(serverList);
+		}
 
-        // POST: ServersController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-    }
+		[HttpGet]
+		public IActionResult Create()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public IActionResult Create(SerweryViewModel serverData)
+		{
+			try
+			{
+				if (ModelState.IsValid)
+				{
+					var server = new Serwery()
+					{
+						Nazwa = serverData.Nazwa,
+						TypSerwera = serverData.TypSerwera,
+						Producent = serverData.Producent,
+						DataZakupu = serverData.DataZakupu,
+						PracownikID = serverData.PracownikID
+					};
+
+					_context.Serwery.Add(server);
+					_context.SaveChanges();
+
+					TempData["successMessage"] = "Server created successfully.";
+					return RedirectToAction("Index");
+				}
+				else
+				{
+					TempData["errorMessage"] = "Model data is not valid.";
+					return View();
+				}
+			}
+			catch (Exception ex)
+			{
+				TempData["errorMessage"] = ex.Message;
+				return View();
+			}
+		}
+	}
 }
