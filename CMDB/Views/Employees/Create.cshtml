@@ -1,4 +1,4 @@
-﻿@model CMDB.Models.PracownicyViewModel
+﻿@model CMDB.Models.DBEntities.EmployeesViewModel
 
 @{
     ViewData["Title"] = "Employees Module - Create";
@@ -21,28 +21,13 @@
 <form action="Create" method="post">
     <div class="mb-3">
         <label class = "form-label">Imie</label>
-        <input type="text" class="form-control" asp-for="Imie" />
-        <span asp-validation-for="Imie" class="text-danger"></span>
+        <input type="text" class="form-control" asp-for="FirstName" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
     <div class="mb-3">
         <label class="form-label">Nazwisko</label>
-        <input type="text" class="form-control" asp-for="Nazwisko" />
-        <span asp-validation-for="Nazwisko" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Stanowisko</label>
-        <input type="text" class="form-control" asp-for="Stanowisko" />
-        <span asp-validation-for="Stanowisko" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Data Zatrudnienia</label>
-        <input type="date" class="form-control" asp-for="DataZatrudnienia" />
-        <span asp-validation-for="DataZatrudnienia" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Telefon</label>
-        <input type="text" class="form-control" asp-for="Telefon" />
-        <span asp-validation-for="Telefon" class="text-danger"></span>
+        <input type="text" class="form-control" asp-for="LastName" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
     <div class="d-grid">
         <button type="submit" class="btn btn-primary">Submit</button>

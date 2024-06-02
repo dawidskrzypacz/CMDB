@@ -20,21 +20,26 @@ namespace CMDB.Controllers
 		[HttpGet]
 		public IActionResult Index()
 		{
-			var servers = _context.Serwery.ToList();
-			var serverList = new List<SerweryViewModel>();
+			var servers = _context.Servers.ToList();
+			var serverList = new List<ServersViewModel>();
 
 			if (servers != null)
 			{
 				foreach (var server in servers)
 				{
-					var serverViewModel = new SerweryViewModel()
+					var serverViewModel = new ServersViewModel()
 					{
-						SerwerID = server.SerwerID,
-						Nazwa = server.Nazwa,
-						TypSerwera = server.TypSerwera,
-						Producent = server.Producent,
-						DataZakupu = server.DataZakupu,
-						PracownikID = server.PracownikID
+						ServerID = server.ServerID,
+						Name = server.Name,
+						Manufacturer = server.Manufacturer,
+						Model = server.Model,
+						OperatingSystem = server.OperatingSystem,
+						IPAddress = server.IPAddress,
+						RAM = server.RAM,
+						CPU = server.CPU,
+						Storage = server.Storage,
+						PurchaseDate = server.PurchaseDate,
+						Accessories = server.Accessories
 					};
 
 					serverList.Add(serverViewModel);
@@ -53,22 +58,28 @@ namespace CMDB.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Create(SerweryViewModel serverData)
+		public IActionResult Create(ServersViewModel serverData)
 		{
 			try
 			{
 				if (ModelState.IsValid)
 				{
-					var server = new Serwery()
+					var server = new Servers()
 					{
-						Nazwa = serverData.Nazwa,
-						TypSerwera = serverData.TypSerwera,
-						Producent = serverData.Producent,
-						DataZakupu = serverData.DataZakupu,
-						PracownikID = serverData.PracownikID
+						ServerID = serverData.ServerID,
+						Name = serverData.Name,
+						Manufacturer = serverData.Manufacturer,
+						Model = serverData.Model,
+						OperatingSystem = serverData.OperatingSystem,
+						IPAddress = serverData.IPAddress,
+						RAM = serverData.RAM,
+						CPU = serverData.CPU,
+						Storage = serverData.Storage,
+						PurchaseDate = serverData.PurchaseDate,
+						Accessories = serverData.Accessories
 					};
 
-					_context.Serwery.Add(server);
+					_context.Servers.Add(server);
 					_context.SaveChanges();
 
 					TempData["successMessage"] = "Server created successfully.";

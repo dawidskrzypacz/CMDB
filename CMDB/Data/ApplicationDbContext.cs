@@ -18,7 +18,7 @@ namespace CMDB.Data
         {
         }
 
-        public DbSet<Models.DBEntities.Pracownicy> Pracownicy { get; set; }
+        public DbSet<Models.DBEntities.Employees> Employees { get; set; }
     }
     public class PhonesDbContext : DbContext
     {
@@ -26,7 +26,7 @@ namespace CMDB.Data
         {
         }
 
-        public DbSet<Models.DBEntities.Telefony> Telefony { get; set; }
+        public DbSet<Models.DBEntities.Phones> Phones { get; set; }
     }
 	public class AccesoriesDbContext : DbContext
 	{
@@ -34,15 +34,7 @@ namespace CMDB.Data
 		{
 		}
 
-		public DbSet<Models.DBEntities.AkcesoriaKomputerowe> AkcesoriaKomputerowe { get; set; }
-	}
-	public class IncydentsDbContext : DbContext
-	{
-		public IncydentsDbContext(DbContextOptions<IncydentsDbContext> options) : base(options)
-		{
-		}
-
-		public DbSet<Models.DBEntities.IncydentyBezpieczenstwa> IncydentyBezpieczenstwa { get; set; }
+		public DbSet<Models.DBEntities.Accessories> Accessories { get; set; }
 	}
 	public class ComputersDbContext : DbContext
 	{
@@ -50,31 +42,40 @@ namespace CMDB.Data
 		{
 		}
 
-		public DbSet<Models.DBEntities.Komputery> Komputery { get; set; }
+		public DbSet<Models.DBEntities.Computers> Computers { get; set; }
 	}
-	public class SoftwareDbContext : DbContext
-	{
-		public SoftwareDbContext(DbContextOptions<SoftwareDbContext> options) : base(options)
-		{
-		}
 
-		public DbSet<Models.DBEntities.Oprogramowanie> Oprogramowanie { get; set; }
-	}
 	public class ServersDbContext : DbContext
 	{
 		public ServersDbContext(DbContextOptions<ServersDbContext> options) : base(options)
 		{
 		}
 
-		public DbSet<Models.DBEntities.Serwery> Serwery { get; set; }
+		public DbSet<Models.DBEntities.Servers> Servers { get; set; }
 	}
-	public class NetworkingDbContext : DbContext
+	public class ResourceRelationshipDbContext : DbContext
 	{
-		public NetworkingDbContext(DbContextOptions<NetworkingDbContext> options) : base(options)
+		public ResourceRelationshipDbContext(DbContextOptions<ResourceRelationshipDbContext> options) : base(options)
 		{
 		}
 
-		public DbSet<Models.DBEntities.SieciKomputerowe> SieciKomputerowe { get; set; }
+		public DbSet<Models.DBEntities.ResourceRelationship> ResourceRelationship { get; set; }
+	}
+	public class NetworkDevicesDbContext : DbContext
+	{
+		public NetworkDevicesDbContext(DbContextOptions<NetworkDevicesDbContext> options) : base(options)
+		{
+		}
+
+		public DbSet<Models.DBEntities.NetworkDevices> NetworkDevices { get; set; }
+	}
+	public class SoftwaresDbContext : DbContext
+	{
+		public SoftwaresDbContext(DbContextOptions<SoftwaresDbContext> options) : base(options)
+		{
+		}
+
+		public DbSet<Models.DBEntities.Softwares> Softwares { get; set; }
 	}
 	public class ServicesDbContext : DbContext
 	{
@@ -82,6 +83,7 @@ namespace CMDB.Data
 		{
 		}
 
-		public DbSet<Models.DBEntities.UslugiIT> UslugiIT { get; set; }
+		public DbSet<Models.DBEntities.Services> Services { get; set; }
 	}
+	
 }

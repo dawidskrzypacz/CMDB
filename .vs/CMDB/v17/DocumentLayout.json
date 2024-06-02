@@ -1,78 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\",
+  "WorkspaceRootPath": "C:\\Users\\dawid.skrzypacz\\CMDB\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\20240602122117_ServicesDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMDB\\Migrations\\20240602122117_ServicesDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\views\\accessories\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\views\\accessories\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\SoftwaresDb\\20240602122111_SoftwaresDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMDB\\Migrations\\SoftwaresDb\\20240602122111_SoftwaresDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\controllers\\accessoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\controllers\\accessoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\NetworkDevicesDb\\20240602122107_NetworkDevicesDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMDB\\Migrations\\NetworkDevicesDb\\20240602122107_NetworkDevicesDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\ResourceRelationshipDb\\20240602122014_ResourceRelationshipDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMDB\\Migrations\\ResourceRelationshipDb\\20240602122014_ResourceRelationshipDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\AccesoriesDb\\20240602122009_AccesoriesDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMDB\\Migrations\\AccesoriesDb\\20240602122009_AccesoriesDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\models\\dbentities\\dbentities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\models\\dbentities\\dbentities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\PhonesDb\\20240602122002_PhonesDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMDB\\Migrations\\PhonesDb\\20240602122002_PhonesDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\models\\dbviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\models\\dbviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\ComputersDb\\20240602121953_ComputersDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMDB\\Migrations\\ComputersDb\\20240602121953_ComputersDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\controllers\\computerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\controllers\\computerscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\ServersDb\\20240602121946_ServersDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMDB\\Migrations\\ServersDb\\20240602121946_ServersDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\migrations\\20240601133847_initializemodules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\migrations\\20240601133847_initializemodules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\controllers\\servicescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\controllers\\phonescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\controllers\\phonescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\views\\services\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\views\\services\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\views\\phones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\views\\phones\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\controllers\\serverscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\controllers\\serverscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\views\\servers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\views\\servers\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\controllers\\networkingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\controllers\\networkingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|c:\\users\\dawid.skrzypacz\\onedrive - summ-it s.a\\dokumenty\\studia\\cmdb\\cmdb\\cmdb\\libman.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}|CMDB\\CMDB.csproj|solutionrelative:cmdb\\libman.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\EmployeesDb\\20240602121932_EmployeesDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMDB\\Migrations\\EmployeesDb\\20240602121932_EmployeesDbContextCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,223 +54,120 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Program.cs",
-              "RelativeDocumentMoniker": "CMDB\\Program.cs",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Program.cs",
-              "RelativeToolTip": "CMDB\\Program.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAgwBkAAAADAAAA",
+              "DocumentIndex": 0,
+              "Title": "20240602122117_ServicesDbContextCreate.cs",
+              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\20240602122117_ServicesDbContextCreate.cs",
+              "RelativeDocumentMoniker": "CMDB\\Migrations\\20240602122117_ServicesDbContextCreate.cs",
+              "ToolTip": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\20240602122117_ServicesDbContextCreate.cs",
+              "RelativeToolTip": "CMDB\\Migrations\\20240602122117_ServicesDbContextCreate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T10:18:33.229Z"
+              "WhenOpened": "2024-06-02T12:21:17.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20240602122111_SoftwaresDbContextCreate.cs",
+              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\SoftwaresDb\\20240602122111_SoftwaresDbContextCreate.cs",
+              "RelativeDocumentMoniker": "CMDB\\Migrations\\SoftwaresDb\\20240602122111_SoftwaresDbContextCreate.cs",
+              "ToolTip": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\SoftwaresDb\\20240602122111_SoftwaresDbContextCreate.cs",
+              "RelativeToolTip": "CMDB\\Migrations\\SoftwaresDb\\20240602122111_SoftwaresDbContextCreate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T12:21:12.147Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AccessoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\AccessoriesController.cs",
-              "RelativeDocumentMoniker": "CMDB\\Controllers\\AccessoriesController.cs",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\AccessoriesController.cs",
-              "RelativeToolTip": "CMDB\\Controllers\\AccessoriesController.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAQwBUAAAADAAAA",
+              "Title": "20240602122107_NetworkDevicesDbContextCreate.cs",
+              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\NetworkDevicesDb\\20240602122107_NetworkDevicesDbContextCreate.cs",
+              "RelativeDocumentMoniker": "CMDB\\Migrations\\NetworkDevicesDb\\20240602122107_NetworkDevicesDbContextCreate.cs",
+              "ToolTip": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\NetworkDevicesDb\\20240602122107_NetworkDevicesDbContextCreate.cs",
+              "RelativeToolTip": "CMDB\\Migrations\\NetworkDevicesDb\\20240602122107_NetworkDevicesDbContextCreate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T12:37:28.286Z",
+              "WhenOpened": "2024-06-02T12:21:07.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "20240602122014_ResourceRelationshipDbContextCreate.cs",
+              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\ResourceRelationshipDb\\20240602122014_ResourceRelationshipDbContextCreate.cs",
+              "RelativeDocumentMoniker": "CMDB\\Migrations\\ResourceRelationshipDb\\20240602122014_ResourceRelationshipDbContextCreate.cs",
+              "ToolTip": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\ResourceRelationshipDb\\20240602122014_ResourceRelationshipDbContextCreate.cs",
+              "RelativeToolTip": "CMDB\\Migrations\\ResourceRelationshipDb\\20240602122014_ResourceRelationshipDbContextCreate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T12:20:14.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "20240602122009_AccesoriesDbContextCreate.cs",
+              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\AccesoriesDb\\20240602122009_AccesoriesDbContextCreate.cs",
+              "RelativeDocumentMoniker": "CMDB\\Migrations\\AccesoriesDb\\20240602122009_AccesoriesDbContextCreate.cs",
+              "ToolTip": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\AccesoriesDb\\20240602122009_AccesoriesDbContextCreate.cs",
+              "RelativeToolTip": "CMDB\\Migrations\\AccesoriesDb\\20240602122009_AccesoriesDbContextCreate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T12:20:09.811Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "20240602122002_PhonesDbContextCreate.cs",
+              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\PhonesDb\\20240602122002_PhonesDbContextCreate.cs",
+              "RelativeDocumentMoniker": "CMDB\\Migrations\\PhonesDb\\20240602122002_PhonesDbContextCreate.cs",
+              "ToolTip": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\PhonesDb\\20240602122002_PhonesDbContextCreate.cs",
+              "RelativeToolTip": "CMDB\\Migrations\\PhonesDb\\20240602122002_PhonesDbContextCreate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T12:20:02.573Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "DbViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Models\\DbViewModel.cs",
-              "RelativeDocumentMoniker": "CMDB\\Models\\DbViewModel.cs",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Models\\DbViewModel.cs",
-              "RelativeToolTip": "CMDB\\Models\\DbViewModel.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAAAB0AAAASAAAA",
+              "Title": "20240602121953_ComputersDbContextCreate.cs",
+              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\ComputersDb\\20240602121953_ComputersDbContextCreate.cs",
+              "RelativeDocumentMoniker": "CMDB\\Migrations\\ComputersDb\\20240602121953_ComputersDbContextCreate.cs",
+              "ToolTip": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\ComputersDb\\20240602121953_ComputersDbContextCreate.cs",
+              "RelativeToolTip": "CMDB\\Migrations\\ComputersDb\\20240602121953_ComputersDbContextCreate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T10:23:56.812Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DBEntities.cs",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Models\\DBEntities\\DBEntities.cs",
-              "RelativeDocumentMoniker": "CMDB\\Models\\DBEntities\\DBEntities.cs",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Models\\DBEntities\\DBEntities.cs",
-              "RelativeToolTip": "CMDB\\Models\\DBEntities\\DBEntities.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T10:23:05.48Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "CMDB\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "CMDB\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAewCQAAABRAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T19:12:01.533Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ServicesController.cs",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\ServicesController.cs",
-              "RelativeDocumentMoniker": "CMDB\\Controllers\\ServicesController.cs",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\ServicesController.cs",
-              "RelativeToolTip": "CMDB\\Controllers\\ServicesController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAABgAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T13:23:16.422Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\appsettings.json",
-              "RelativeDocumentMoniker": "CMDB\\appsettings.json",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\appsettings.json",
-              "RelativeToolTip": "CMDB\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-28T19:13:07.437Z",
+              "WhenOpened": "2024-06-02T12:19:53.888Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "ComputersController.cs",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\ComputersController.cs",
-              "RelativeDocumentMoniker": "CMDB\\Controllers\\ComputersController.cs",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\ComputersController.cs",
-              "RelativeToolTip": "CMDB\\Controllers\\ComputersController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T12:43:37.143Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Views\\Services\\Index.cshtml",
-              "RelativeDocumentMoniker": "CMDB\\Views\\Services\\Index.cshtml",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Views\\Services\\Index.cshtml",
-              "RelativeToolTip": "CMDB\\Views\\Services\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADUAAABYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-01T13:25:26.38Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Views\\Accessories\\Index.cshtml",
-              "RelativeDocumentMoniker": "CMDB\\Views\\Accessories\\Index.cshtml",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Views\\Accessories\\Index.cshtml",
-              "RelativeToolTip": "CMDB\\Views\\Accessories\\Index.cshtml",
+              "Title": "20240602121946_ServersDbContextCreate.cs",
+              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\ServersDb\\20240602121946_ServersDbContextCreate.cs",
+              "RelativeDocumentMoniker": "CMDB\\Migrations\\ServersDb\\20240602121946_ServersDbContextCreate.cs",
+              "ToolTip": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\ServersDb\\20240602121946_ServersDbContextCreate.cs",
+              "RelativeToolTip": "CMDB\\Migrations\\ServersDb\\20240602121946_ServersDbContextCreate.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-01T14:46:59.631Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T12:19:46.316Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "20240601133847_initializemodules.cs",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Migrations\\20240601133847_initializemodules.cs",
-              "RelativeDocumentMoniker": "CMDB\\Migrations\\20240601133847_initializemodules.cs",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Migrations\\20240601133847_initializemodules.cs",
-              "RelativeToolTip": "CMDB\\Migrations\\20240601133847_initializemodules.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAgAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T13:38:47.912Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "EmployeesController.cs",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\EmployeesController.cs",
-              "RelativeDocumentMoniker": "CMDB\\Controllers\\EmployeesController.cs",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\EmployeesController.cs",
-              "RelativeToolTip": "CMDB\\Controllers\\EmployeesController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T10:17:59.726Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Views\\Phones\\Index.cshtml",
-              "RelativeDocumentMoniker": "CMDB\\Views\\Phones\\Index.cshtml",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Views\\Phones\\Index.cshtml",
-              "RelativeToolTip": "CMDB\\Views\\Phones\\Index.cshtml",
-              "ViewState": "AQIAADEAAAAAAAAAAAAgwEoAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-01T10:48:14.992Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "PhonesController.cs",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\PhonesController.cs",
-              "RelativeDocumentMoniker": "CMDB\\Controllers\\PhonesController.cs",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\PhonesController.cs",
-              "RelativeToolTip": "CMDB\\Controllers\\PhonesController.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwCkAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T10:25:29.386Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ServersController.cs",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\ServersController.cs",
-              "RelativeDocumentMoniker": "CMDB\\Controllers\\ServersController.cs",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\ServersController.cs",
-              "RelativeToolTip": "CMDB\\Controllers\\ServersController.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAgwFoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T12:46:14.746Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "NetworkingController.cs",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\NetworkingController.cs",
-              "RelativeDocumentMoniker": "CMDB\\Controllers\\NetworkingController.cs",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Controllers\\NetworkingController.cs",
-              "RelativeToolTip": "CMDB\\Controllers\\NetworkingController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-01T12:44:25.192Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Views\\Servers\\Index.cshtml",
-              "RelativeDocumentMoniker": "CMDB\\Views\\Servers\\Index.cshtml",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\Views\\Servers\\Index.cshtml",
-              "RelativeToolTip": "CMDB\\Views\\Servers\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-06-01T12:47:29.539Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "libman.json",
-              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\libman.json",
-              "RelativeDocumentMoniker": "CMDB\\libman.json",
-              "ToolTip": "C:\\Users\\dawid.skrzypacz\\OneDrive - summ-it s.a\\Dokumenty\\Studia\\CMDB\\CMDB\\CMDB\\libman.json",
-              "RelativeToolTip": "CMDB\\libman.json",
+              "Title": "20240602121932_EmployeesDbContextCreate.cs",
+              "DocumentMoniker": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\EmployeesDb\\20240602121932_EmployeesDbContextCreate.cs",
+              "RelativeDocumentMoniker": "CMDB\\Migrations\\EmployeesDb\\20240602121932_EmployeesDbContextCreate.cs",
+              "ToolTip": "C:\\Users\\dawid.skrzypacz\\CMDB\\CMDB\\Migrations\\EmployeesDb\\20240602121932_EmployeesDbContextCreate.cs",
+              "RelativeToolTip": "CMDB\\Migrations\\EmployeesDb\\20240602121932_EmployeesDbContextCreate.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-28T19:09:46.181Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T12:19:33.081Z",
+              "EditorCaption": ""
             }
           ]
         }

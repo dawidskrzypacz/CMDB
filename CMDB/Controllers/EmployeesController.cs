@@ -18,20 +18,25 @@ namespace CMDB.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var employees = _context.Pracownicy.ToList();
-            List<PracownicyViewModel> employeeList = new List<PracownicyViewModel>();
+            var employees = _context.Employees.ToList();
+            List<EmployeesViewModel> employeeList = new List<EmployeesViewModel>();
             if(employees != null)
             {
                 foreach (var employee in employees)
                 {
-                    var EmployeeViewModel = new PracownicyViewModel()
+                    var EmployeeViewModel = new EmployeesViewModel()
                     {
-						PracownikID = employee.PracownikID,
-                        Imie = employee.Imie,
-                        Nazwisko = employee.Nazwisko,
-                        Stanowisko = employee.Stanowisko,
-                        DataZatrudnienia = employee.DataZatrudnienia,
-                        Telefon = employee.Telefon
+						EmployeeID  = employee.EmployeeID,
+						FirstName  = employee.FirstName,
+						LastName = employee.LastName,
+						Email = employee.Email,
+						Department  = employee.Department,
+						Position  = employee.Position,
+						PhoneNumber  = employee.PhoneNumber,
+						OfficeLocation  = employee.OfficeLocation,
+						Computers  = employee.Computers,
+						Phones  = employee.Phones,
+						Accessories = employee.Accessories
 					};
                     employeeList.Add(EmployeeViewModel);
 
@@ -49,22 +54,27 @@ namespace CMDB.Controllers
         }
             // GET: EmployeesController/Create
             [HttpPost]
-        public IActionResult Create(PracownicyViewModel employeeData)
+        public IActionResult Create(EmployeesViewModel employeeData)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var employee = new Pracownicy()
+                    var employee = new Employees()
                     {
-                        PracownikID = employeeData.PracownikID,
-                        Imie = employeeData.Imie,
-                        Nazwisko = employeeData.Nazwisko,
-                        Stanowisko = employeeData.Stanowisko,
-                        DataZatrudnienia = employeeData.DataZatrudnienia,
-                        Telefon = employeeData.Telefon
-                    };
-                    _context.Pracownicy.Add(employee);
+						EmployeeID  = employeeData.EmployeeID,
+						FirstName  = employeeData.FirstName,
+						LastName = employeeData.LastName,
+						Email = employeeData.Email,
+						Department  = employeeData.Department,
+						Position  = employeeData.Position,
+						PhoneNumber  = employeeData.PhoneNumber,
+						OfficeLocation  = employeeData.OfficeLocation,
+						Computers  = employeeData.Computers,
+						Phones  = employeeData.Phones,
+						Accessories = employeeData.Accessories
+					};
+                    _context.Employees.Add(employee);
                     _context.SaveChanges();
                     TempData["successMessage"] = "Employee created";
                     return RedirectToAction("Index");
