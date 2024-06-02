@@ -1,100 +1,46 @@
-@model List<CMDB.Models.DBEntities.EmployeesViewModel>
-@using CMDB.Models.DBEntities
-@using CMDB.Models
+@model IEnumerable<CMDB.Models.DBEntities.Employees>
+@using CMDB.ViewModels
 
 @{
-    ViewData["Title"] = "Employee Details";
-    var successMessage = TempData["successMessage"]?.ToString();
-    var errorMessage = TempData["errorMessage"]?.ToString();
-
-    // Define page, pageSize, and totalCount
-    var page = 1;
-    var pageSize = 5;
-    var totalCount = 0;
-
-    if (ViewData["Pager"] is PagerViewModel pager)
-    {
-        page = pager.CurrentPage;
-        pageSize = pager.PageSize;
-        totalCount = pager.TotalItems;
-    }
-
+    var pager = (PagerViewModel)ViewData["Pager"];
 }
 
-<h3>@ViewData["Title"]</h3>
-@if (!string.IsNullOrWhiteSpace(successMessage))
-{
-    <div class="alert alert-success">
-        <strong>Success! </strong>@successMessage
-        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-    </div>
-}
-else if (!string.IsNullOrWhiteSpace(errorMessage))
-{
-    <div class="alert alert-danger">
-        <strong>Error! </strong>@errorMessage
-        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-    </div>
-}
-<form>
+<h1>Employees</h1>
 
-    <label for="pageSize">Rows per Page:</label>
-    <select id="pageSize" name="pageSize">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="20">20</option>
+<div class="d-flex justify-content-between mb-3">
+    <button asp-action="Create" asp-controller="Employees" class="btn btn-primary">Create Employee</button>
+    @Html.Partial("_PageSizeForm", pager)
+</div>
 
-    </select>
-    <button type="submit">Apply</button>
-
-    <button asp-action="Create" asp-controller="Employees" class="btn btn-primary mb-3">Create Employee</button>
-    <table id="animated-table" class="table table-responsive table-hover table-bordered">
-        <thead>
-            <tr class="table-active">
-                <th>Employee ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Department</th>
-                <th>Actions</th>
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.FirstName</td>
+                <td>@employee.LastName</td>
+                <td>@employee.Email</td>
+                <td>@employee.Department</td>
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <a asp-controller="Employees" asp-action="Edit" asp-route-id="@employee.EmployeeID" class="btn btn-primary">Edit</a>
+                        <a asp-controller="Employees" asp-action="Details" asp-route-id="@employee.EmployeeID" class="btn btn-primary">Details</a>
+                        <button data-url="@Url.Action("DeleteConfirmed", "Employees")" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="@employee.EmployeeID">Delete</button>
+                    </div>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @if (Model != null && Model.Any())
-            {
-                @foreach (var employee in Model)
-                {
-                    <tr>
-                        <td>@employee.EmployeeID</td>
-                        <td>@employee.FirstName</td>
-                        <td>@employee.LastName</td>
-                        <td>@employee.Email</td>
-                        <td>@employee.Department</td>
-                        <td>
-                            <div class="btn-group btn-group-sm">
-                                <a asp-controller="Employees" asp-action="Edit" asp-route-id="@employee.EmployeeID"
-                                    class="btn btn-primary">Edit</a>
-                                <a asp-controller="Employees" asp-action="Details" asp-route-id="@employee.EmployeeID"
-                                    class="btn btn-primary">Details</a>
-                                <a asp-controller="Employees" asp-action="Delete" asp-route-id="@employee.EmployeeID"
-                                    class="btn btn-danger">Delete</a>
-                            </div>
-                        </td>
-                    </tr>
-                }
-            }
-            else
-            {
-                <tr>
-                    <td colspan="6">
-                        <div>
-                            No Employees available at this moment!
-                        </div>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
 
-    @await Html.PartialAsync("_Pager", new PagerViewModel(page, pageSize, totalCount))
-</form>
+<!-- Render partial pager -->
+@Html.Partial("_Pager", pager)

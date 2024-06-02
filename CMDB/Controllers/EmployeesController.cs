@@ -1,101 +1,139 @@
-﻿using CMDB.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using CMDB.Data;
 using CMDB.Models.DBEntities;
-using CMDB.Data;
-
-
+using CMDB.ViewModels; // Dodaj tę linię
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
 
 namespace CMDB.Controllers
 {
     public class EmployeesController : Controller
     {
         private readonly EmployeesDbContext _context;
-        public EmployeesController(CMDB.Data.EmployeesDbContext context)
+        private readonly int[] pageSizeOptions = { 5, 10, 20 }; // Dostępne opcje ilości elementów na stronie
+
+        public EmployeesController(EmployeesDbContext context)
         {
-            this._context = context;
+            _context = context;
         }
-        // GET: EmployeesController
+
         [HttpGet]
         public IActionResult Index(int page = 1, int pageSize = 5)
         {
-            var employees = _context.Employees.ToList();
-            var paginatedEmployees = employees.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            var employees = _context.Employees
+                                    .Skip((page - 1) * pageSize)
+                                    .Take(pageSize)
+                                    .ToList();
 
-            var totalCount = employees.Count;
-            var pager = new PagerViewModel(page, pageSize, totalCount);
+            var totalCount = _context.Employees.Count();
+            ViewData["Pager"] = new PagerViewModel(page, pageSize, totalCount, pageSizeOptions);
 
-            ViewData["Pager"] = pager;
-
-            // Convert Employees to EmployeesViewModel
-            var employeeViewModels = paginatedEmployees.Select(employee => new EmployeesViewModel
-            {
-                EmployeeID = employee.EmployeeID,
-                FirstName = employee.FirstName,
-                LastName = employee.LastName,
-                Email = employee.Email,
-                Department = employee.Department,
-                Position = employee.Position,
-                PhoneNumber = employee.PhoneNumber,
-                OfficeLocation = employee.OfficeLocation,
-                Computers = employee.Computers,
-                Phones = employee.Phones,
-                Accessories = employee.Accessories
-            }).ToList();
-
-            return View(employeeViewModels);
-
+            return View(employees);
         }
 
-
-
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var employee = _context.Employees.Find(id);
+            if (employee == null)
+            {
+                TempData["errorMessage"] = "Employee not found.";
+                return RedirectToAction("Index");
+            }
+            return View(employee);
+        }
 
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
-        // GET: EmployeesController/Create
+
         [HttpPost]
-        public IActionResult Create(EmployeesViewModel employeeData)
+        public IActionResult Create(Employees employee)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["errorMessage"] = "Model data is not valid.";
+                return View(employee);
+            }
+
+            try
+            {
+                _context.Employees.Add(employee);
+                _context.SaveChanges();
+
+                TempData["successMessage"] = "Employee created successfully.";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = ex.Message;
+                return View(employee);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var employee = _context.Employees.Find(id);
+            if (employee == null)
+            {
+                TempData["errorMessage"] = "Employee not found.";
+                return RedirectToAction("Index");
+            }
+            return View(employee);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Employees employee)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var employee = new Employees()
-                    {
-                        EmployeeID = employeeData.EmployeeID,
-                        FirstName = employeeData.FirstName,
-                        LastName = employeeData.LastName,
-                        Email = employeeData.Email,
-                        Department = employeeData.Department,
-                        Position = employeeData.Position,
-                        PhoneNumber = employeeData.PhoneNumber,
-                        OfficeLocation = employeeData.OfficeLocation,
-                        Computers = employeeData.Computers,
-                        Phones = employeeData.Phones,
-                        Accessories = employeeData.Accessories
-                    };
-                    _context.Employees.Add(employee);
+                    _context.Employees.Update(employee);
                     _context.SaveChanges();
-                    TempData["successMessage"] = "Employee created";
+
+                    TempData["successMessage"] = "Employee updated successfully.";
                     return RedirectToAction("Index");
                 }
                 else
                 {
                     TempData["errorMessage"] = "Model data is not valid.";
-                    return View();
+                    return View(employee);
                 }
             }
             catch (Exception ex)
             {
-
                 TempData["errorMessage"] = ex.Message;
-                return View();
+                return View(employee);
             }
         }
+        
+        [HttpPost]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            try
+            {
+                var employee = _context.Employees.Find(id);
+                if (employee == null)
+                {
+                    TempData["errorMessage"] = "Employee not found.";
+                    return RedirectToAction("Index");
+                }
 
+                _context.Employees.Remove(employee);
+                _context.SaveChanges();
 
+                TempData["successMessage"] = "Employee deleted successfully.";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = ex.Message;
+                return RedirectToAction("Index");
+            }
+        }
     }
 }
