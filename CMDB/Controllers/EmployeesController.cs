@@ -88,19 +88,21 @@ namespace CMDB.Controllers
         [HttpPost]
         public IActionResult Edit(Employees employee)
         {
-            if (!ModelState.IsValid)
-            {
-                TempData["errorMessage"] = "Model data is not valid.";
-                return View(employee);
-            }
-
             try
             {
-                _context.Employees.Update(employee);
-                _context.SaveChanges();
+                if (ModelState.IsValid)
+                {
+                    _context.Employees.Update(employee);
+                    _context.SaveChanges();
 
-                TempData["successMessage"] = "Employee updated successfully.";
-                return RedirectToAction("Index");
+                    TempData["successMessage"] = "Employee updated successfully.";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["errorMessage"] = "Model data is not valid.";
+                    return View(employee);
+                }
             }
             catch (Exception ex)
             {
