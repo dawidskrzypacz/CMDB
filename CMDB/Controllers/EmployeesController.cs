@@ -1,6 +1,6 @@
 ﻿using CMDB.Data;
 using CMDB.Models.DBEntities;
-using CMDB.ViewModels; // Dodaj tę linię
+using CMDB.ViewModels; // PAGINATION
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -10,7 +10,7 @@ namespace CMDB.Controllers
     public class EmployeesController : Controller
     {
         private readonly EmployeesDbContext _context;
-        private readonly int[] pageSizeOptions = { 5, 10, 20 }; // Dostępne opcje ilości elementów na stronie
+        private readonly int[] pageSizeOptions = { 5, 10, 20 }; // PAGINATION
 
         public EmployeesController(EmployeesDbContext context)
         {

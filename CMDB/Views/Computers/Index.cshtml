@@ -1,9 +1,12 @@
-﻿@model List<CMDB.Models.DBEntities.Computers>
+﻿
+@model List<CMDB.Models.DBEntities.Computers>
+@using CMDB.ViewModels
 
 @{
     ViewData["Title"] = "Computer Details";
     var successMessage = TempData["successMessage"]?.ToString();
     var errorMessage = TempData["errorMessage"]?.ToString();
+    var pager = (PagerViewModel)ViewData["Pager"];
 }
 
 <h3>@ViewData["Title"]</h3>
@@ -21,8 +24,12 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
         <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
     </div>
 }
-<form>
-    <button asp-action="Create" asp-controller="Computers" class="btn btn-primary mb-3">Create Computer</button>
+
+    <div class="d-flex justify-content-between mb-3">
+        <button asp-action="Create" asp-controller="Computers" class="btn btn-primary mb-3">Create Computer</button>
+        @Html.Partial("_PageSizeForm", pager)
+    </div>
+
     <table id="animated-table" class="table table-responsive table-hover table-bordered">
         <thead>
             <tr class="table-active">
@@ -63,4 +70,6 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
             }
         </tbody>
     </table>
-</form>
+
+<!-- Render partial pager -->
+@Html.Partial("_Pager", pager)

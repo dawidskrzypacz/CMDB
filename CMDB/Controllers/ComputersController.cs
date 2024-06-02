@@ -1,5 +1,6 @@
 ﻿using CMDB.Data;
 using CMDB.Models.DBEntities;
+using CMDB.ViewModels; // PAGINATION
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace CMDB.Controllers
     public class ComputersController : Controller
     {
         private readonly ComputersDbContext _context;
+        private readonly int[] pageSizeOptions = { 5, 10, 20 }; // PAGINATION
 
         public ComputersController(ComputersDbContext context)
         {
@@ -16,10 +18,17 @@ namespace CMDB.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(int page = 1, int pageSize = 5)
         {
-            var computers = _context.Computers.ToList();
-            return View(computers);
+            var employees = _context.Computers
+                                    .Skip((page - 1) * pageSize)
+                                    .Take(pageSize)
+                                    .ToList();
+
+            var totalCount = _context.Computers.Count();
+            ViewData["Pager"] = new PagerViewModel(page, pageSize, totalCount, pageSizeOptions);
+
+            return View(employees);
         }
 
         [HttpGet]
