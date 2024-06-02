@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CMDB.Models.DBEntities;
 using CMDB.Data;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace CMDB.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PhonesController : Controller
     {
         private readonly PhonesDbContext _context;
@@ -26,9 +28,9 @@ namespace CMDB.Controllers
                 {
                     var PhonesViewModel = new PhonesViewModel()
                     {
-                        PhoneID =  phone.PhoneID,
+                        PhoneID = phone.PhoneID,
                         Name = phone.Name,
-                        Manufacturer= phone.Manufacturer,
+                        Manufacturer = phone.Manufacturer,
                         Model = phone.Model,
                         OperatingSystem = phone.OperatingSystem,
                         PhoneNumber = phone.PhoneNumber,
@@ -36,7 +38,7 @@ namespace CMDB.Controllers
                         ScreenSize = phone.ScreenSize,
                         PurchaseDate = phone.PurchaseDate,
                         Accessories = phone.Accessories
-					};
+                    };
                     phoneList.Add(PhonesViewModel);
 
                 }
@@ -61,17 +63,17 @@ namespace CMDB.Controllers
                 {
                     var phone = new Phones()
                     {
-						PhoneID =  phoneData.PhoneID,
-						Name = phoneData.Name,
-						Manufacturer= phoneData.Manufacturer,
-						Model = phoneData.Model,
-						OperatingSystem = phoneData.OperatingSystem,
-						PhoneNumber = phoneData.PhoneNumber,
-						Storage = phoneData.Storage,
-						ScreenSize = phoneData.ScreenSize,
-						PurchaseDate = phoneData.PurchaseDate,
-						Accessories = phoneData.Accessories
-					};
+                        PhoneID = phoneData.PhoneID,
+                        Name = phoneData.Name,
+                        Manufacturer = phoneData.Manufacturer,
+                        Model = phoneData.Model,
+                        OperatingSystem = phoneData.OperatingSystem,
+                        PhoneNumber = phoneData.PhoneNumber,
+                        Storage = phoneData.Storage,
+                        ScreenSize = phoneData.ScreenSize,
+                        PurchaseDate = phoneData.PurchaseDate,
+                        Accessories = phoneData.Accessories
+                    };
                     _context.Phones.Add(phone);
                     _context.SaveChanges();
                     TempData["successMessage"] = "Phone created";

@@ -16,8 +16,8 @@ namespace CMDB.Controllers
         }
         // GET: EmployeesController
         [HttpGet]
-			
-		public IActionResult Index()
+
+        public IActionResult Index()
         {
             var services = _context.Services.ToList();
             List<ServicesViewModel> serviceList = new List<ServicesViewModel>();
@@ -28,11 +28,11 @@ namespace CMDB.Controllers
                     var ServicesViewModel = new ServicesViewModel()
                     {
 
-                        ServiceID =  service.ServiceID,
+                        ServiceID = service.ServiceID,
                         Name = service.Name,
-                        Description= service.Description,
+                        Description = service.Description,
                         Servers = service.Servers
-					};
+                    };
                     serviceList.Add(ServicesViewModel);
 
                 }
@@ -57,11 +57,11 @@ namespace CMDB.Controllers
                 {
                     var service = new Services()
                     {
-						ServiceID =  serviceData.ServiceID,
-						Name = serviceData.Name,
-						Description= serviceData.Description,
-						Servers = serviceData.Servers
-					};
+                        ServiceID = serviceData.ServiceID,
+                        Name = serviceData.Name,
+                        Description = serviceData.Description,
+                        Servers = serviceData.Servers
+                    };
                     _context.Services.Add(service);
                     _context.SaveChanges();
                     TempData["successMessage"] = "Service created";

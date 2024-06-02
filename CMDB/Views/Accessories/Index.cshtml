@@ -7,20 +7,20 @@
 }
 
 <h3>@ViewData["Title"]</h3>
-@if(!string.IsNullOrWhiteSpace(successMessage))
+@if (!string.IsNullOrWhiteSpace(successMessage))
 {
-<div class="alert alert-success">
-	<strong>Success! </strong>@successMessage
-<button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-</div>
-	
+	<div class="alert alert-success">
+		<strong>Success! </strong>@successMessage
+		<button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+	</div>
+
 }
 
 else if (!string.IsNullOrWhiteSpace(errorMessage))
 {
 	<div class="alert alert-danger">
 		<strong>Error! </strong>@errorMessage
-	<button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+		<button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
 	</div>
 
 }
@@ -34,7 +34,7 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
 			</tr>
 		</thead>
 		<tbody>
-			@if(Model != null && Model.Any())
+			@if (Model != null && Model.Any())
 			{
 				@foreach (var accessory in Model)
 				{
@@ -43,9 +43,12 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
 
 						<td>
 							<div class="btnbtn-group btn-group-sm">
-								<a asp-controller="Accessories" asp-action="Edit" asp-route-id="@accessory.AccessoryID" class="btn btn-primary">Edit</a>
-								<a asp-controller="Accessories" asp-action="Details" asp-route-id="@accessory.AccessoryID" class="btn btn-primary">Details</a>
-								<a asp-controller="Accessories" asp-action="Delete" asp-route-id="@accessory.AccessoryID" class="btn btn-danger">Delete</a>
+								<a asp-controller="Accessories" asp-action="Edit" asp-route-id="@accessory.AccessoryID"
+									class="btn btn-primary">Edit</a>
+								<a asp-controller="Accessories" asp-action="Details" asp-route-id="@accessory.AccessoryID"
+									class="btn btn-primary">Details</a>
+								<a asp-controller="Accessories" asp-action="Delete" asp-route-id="@accessory.AccessoryID"
+									class="btn btn-danger">Delete</a>
 							</div>
 						</td>
 					</tr>
