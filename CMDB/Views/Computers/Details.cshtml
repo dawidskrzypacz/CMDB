@@ -1,6 +1,71 @@
-﻿@{
-    ViewData["Title"] = "Computers Module - Details";
+﻿@model CMDB.Models.DBEntities.Computers
+
+@{
+    ViewData["Title"] = "Computer Details";
+    var successMessage = TempData["successMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
 }
 
-
 <h1>@ViewData["Title"]</h1>
+<hr />
+
+@if (!string.IsNullOrWhiteSpace(successMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success! </strong>@successMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error! </strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="mb-3">
+    <label class="form-label">Name</label>
+    <p class="form-control-static">@Model.Name</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Manufacturer</label>
+    <p class="form-control-static">@Model.Manufacturer</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Model</label>
+    <p class="form-control-static">@Model.Model</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Operating System</label>
+    <p class="form-control-static">@Model.OperatingSystem</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">IP Address</label>
+    <p class="form-control-static">@Model.IPAddress</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">RAM</label>
+    <p class="form-control-static">@Model.RAM</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">CPU</label>
+    <p class="form-control-static">@Model.CPU</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Storage</label>
+    <p class="form-control-static">@Model.Storage</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Purchase Date</label>
+    <p class="form-control-static">@Model.PurchaseDate.ToString("yyyy-MM-dd")</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Accessories</label>
+    <p class="form-control-static">@Model.Accessories</p>
+</div>
+
+<div class="d-flex justify-content-between">
+    <a asp-action="Edit" asp-route-id="@Model.ComputerID" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
