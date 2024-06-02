@@ -1,6 +1,7 @@
 ﻿using CMDB.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using CMDB.Models.DBEntities;
 
 namespace CMDB.Data
 {
@@ -19,6 +20,7 @@ namespace CMDB.Data
         }
 
         public DbSet<Models.DBEntities.Employees> Employees { get; set; }
+        public DbSet<CMDB.Models.DBEntities.EmployeesViewModel> EmployeesViewModel { get; set; } = default!;
     }
     public class PhonesDbContext : DbContext
     {

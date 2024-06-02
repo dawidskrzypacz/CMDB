@@ -5,6 +5,7 @@ using CMDB.Models.DBEntities;
 using CMDB.Data;
 
 
+
 namespace CMDB.Controllers
 {
     public class EmployeesController : Controller
@@ -16,35 +17,37 @@ namespace CMDB.Controllers
         }
         // GET: EmployeesController
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(int page = 1, int pageSize = 5)
         {
             var employees = _context.Employees.ToList();
-            List<EmployeesViewModel> employeeList = new List<EmployeesViewModel>();
-            if(employees != null)
-            {
-                foreach (var employee in employees)
-                {
-                    var EmployeeViewModel = new EmployeesViewModel()
-                    {
-						EmployeeID  = employee.EmployeeID,
-						FirstName  = employee.FirstName,
-						LastName = employee.LastName,
-						Email = employee.Email,
-						Department  = employee.Department,
-						Position  = employee.Position,
-						PhoneNumber  = employee.PhoneNumber,
-						OfficeLocation  = employee.OfficeLocation,
-						Computers  = employee.Computers,
-						Phones  = employee.Phones,
-						Accessories = employee.Accessories
-					};
-                    employeeList.Add(EmployeeViewModel);
+            var paginatedEmployees = employees.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
-				}
-                return View(employeeList);
-            }
-            return View(employeeList);
+            var totalCount = employees.Count;
+            var pager = new PagerViewModel(page, pageSize, totalCount);
+
+            ViewData["Pager"] = pager;
+
+            // Convert Employees to EmployeesViewModel
+            var employeeViewModels = paginatedEmployees.Select(employee => new EmployeesViewModel
+            {
+                EmployeeID = employee.EmployeeID,
+                FirstName = employee.FirstName,
+                LastName = employee.LastName,
+                Email = employee.Email,
+                Department = employee.Department,
+                Position = employee.Position,
+                PhoneNumber = employee.PhoneNumber,
+                OfficeLocation = employee.OfficeLocation,
+                Computers = employee.Computers,
+                Phones = employee.Phones,
+                Accessories = employee.Accessories
+            }).ToList();
+
+            return View(employeeViewModels);
+
         }
+
+
 
 
         [HttpGet]

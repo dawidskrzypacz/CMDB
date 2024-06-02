@@ -201,4 +201,11 @@ public class Services
     public virtual ICollection<Servers> Servers { get; set; }
 
 }
+    public class PagerOptions
+    {
+        public int CurrentPage { get; set; }
+        public int PageSize { get; set; }
+        public int TotalItems { get; set; }
+        public int PageCount => (int)Math.Ceiling((double)TotalItems / PageSize);
+    }
 }

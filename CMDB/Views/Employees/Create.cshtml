@@ -5,7 +5,6 @@
     var errorMessage = TempData["errorMessage"]?.ToString();
 }
 
-
 <h1>@ViewData["Title"]</h1>
 <hr />
 
@@ -15,19 +14,58 @@
         <strong>Error! </strong>@errorMessage
         <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
     </div>
-
 }
 
 <form action="Create" method="post">
     <div class="mb-3">
-        <label class = "form-label">Imie</label>
+        <label class="form-label">First Name</label>
         <input type="text" class="form-control" asp-for="FirstName" />
         <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label class="form-label">Nazwisko</label>
+        <label class="form-label">Last Name</label>
         <input type="text" class="form-control" asp-for="LastName" />
         <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Department</label>
+        <input type="text" class="form-control" asp-for="Department" />
+        <span asp-validation-for="Department" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Position</label>
+        <input type="text" class="form-control" asp-for="Position" />
+        <span asp-validation-for="Position" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Phone Number</label>
+        <input type="text" class="form-control" asp-for="PhoneNumber" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Office Location</label>
+        <input type="text" class="form-control" asp-for="OfficeLocation" />
+        <span asp-validation-for="OfficeLocation" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Computers</label>
+        <input type="text" class="form-control" asp-for="Computers" />
+        <span asp-validation-for="Computers" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Phones</label>
+        <input type="text" class="form-control" asp-for="Phones" />
+        <span asp-validation-for="Phones" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Accessories</label>
+        <input type="text" class="form-control" asp-for="Accessories" />
+        <span asp-validation-for="Accessories" class="text-danger"></span>
     </div>
     <div class="d-grid">
         <button type="submit" class="btn btn-primary">Submit</button>
