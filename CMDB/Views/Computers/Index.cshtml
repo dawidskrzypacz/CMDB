@@ -1,6 +1,62 @@
-﻿@{
-    ViewData["Title"] = "Computers Module - Index";
+﻿@model List<CMDB.Models.DBEntities.Computers>
+
+@{
+    ViewData["Title"] = "Computer Details";
+    var successMessage = TempData["successMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
 }
 
-
-<h1>@ViewData["Title"]</h1>
+<h3>@ViewData["Title"]</h3>
+@if (!string.IsNullOrWhiteSpace(successMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success! </strong>@successMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error! </strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+<form>
+    <button asp-action="Create" asp-controller="Computers" class="btn btn-primary mb-3">Create Computer</button>
+    <table id="animated-table" class="table table-responsive table-hover table-bordered">
+        <thead>
+            <tr class="table-active">
+                <th>ComputerID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var computer in Model)
+                {
+                    <tr>
+                        <td>@computer.ComputerID</td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a asp-controller="Computers" asp-action="Edit" asp-route-id="@computer.ComputerID" class="btn btn-primary">Edit</a>
+                                <a asp-controller="Computers" asp-action="Details" asp-route-id="@computer.ComputerID" class="btn btn-primary">Details</a>
+                                <button data-url="@Url.Action("DeleteConfirmed", "Computers")" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="@computer.ComputerID">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="2">
+                        <div>
+                            No Computers available at this moment!
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
