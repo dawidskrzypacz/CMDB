@@ -42,9 +42,12 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
 
                         <td>
                             <div class="btn-group btn-group-sm">
-                                <a asp-controller="Servers" asp-action="Edit" asp-route-id="@server.ServerID" class="btn btn-primary">Edit</a>
-                                <a asp-controller="Servers" asp-action="Details" asp-route-id="@server.ServerID" class="btn btn-primary">Details</a>
-                                <a asp-controller="Servers" asp-action="Delete" asp-route-id="@server.ServerID" class="btn btn-danger">Delete</a>
+                                <a asp-controller="Servers" asp-action="Edit" asp-route-id="@server.ServerID"
+                                    class="btn btn-primary">Edit</a>
+                                <a asp-controller="Servers" asp-action="Details" asp-route-id="@server.ServerID"
+                                    class="btn btn-primary">Details</a>
+                                <a asp-controller="Servers" asp-action="Delete" asp-route-id="@server.ServerID"
+                                    class="btn btn-danger">Delete</a>
                             </div>
                         </td>
                     </tr>

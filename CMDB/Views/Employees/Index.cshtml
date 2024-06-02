@@ -18,10 +18,8 @@
         pageSize = pager.PageSize;
         totalCount = pager.TotalItems;
     }
- 
+
 }
-
-
 
 <h3>@ViewData["Title"]</h3>
 @if (!string.IsNullOrWhiteSpace(successMessage))
@@ -39,8 +37,8 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
     </div>
 }
 <form>
-    
-        <label for="pageSize">Rows per Page:</label>
+
+    <label for="pageSize">Rows per Page:</label>
     <select id="pageSize" name="pageSize">
         <option value="5">5</option>
         <option value="10">10</option>
@@ -74,9 +72,12 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
                         <td>@employee.Department</td>
                         <td>
                             <div class="btn-group btn-group-sm">
-                                <a asp-controller="Employees" asp-action="Edit" asp-route-id="@employee.EmployeeID" class="btn btn-primary">Edit</a>
-                                <a asp-controller="Employees" asp-action="Details" asp-route-id="@employee.EmployeeID" class="btn btn-primary">Details</a>
-                                <a asp-controller="Employees" asp-action="Delete" asp-route-id="@employee.EmployeeID" class="btn btn-danger">Delete</a>
+                                <a asp-controller="Employees" asp-action="Edit" asp-route-id="@employee.EmployeeID"
+                                    class="btn btn-primary">Edit</a>
+                                <a asp-controller="Employees" asp-action="Details" asp-route-id="@employee.EmployeeID"
+                                    class="btn btn-primary">Details</a>
+                                <a asp-controller="Employees" asp-action="Delete" asp-route-id="@employee.EmployeeID"
+                                    class="btn btn-danger">Delete</a>
                             </div>
                         </td>
                     </tr>
