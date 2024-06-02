@@ -205,7 +205,7 @@ public class ServicesViewModel
 
     public virtual ICollection<Servers> Servers { get; set; }
 
-    }
+}
     public class PagerViewModel
     {
         public int CurrentPage { get; set; }
@@ -220,5 +220,4 @@ public class ServicesViewModel
             TotalItems = totalItems;
         }
     }
-
 }
