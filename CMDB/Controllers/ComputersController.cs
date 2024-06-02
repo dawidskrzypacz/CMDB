@@ -20,21 +20,26 @@ namespace CMDB.Controllers
 		[HttpGet]
 		public IActionResult Index()
 		{
-			var computers = _context.Komputery.ToList();
-			var computerList = new List<KomputeryViewModel>();
+			var computers = _context.Computers.ToList();
+			var computerList = new List<ComputersViewModel>();
 
 			if (computers != null)
 			{
 				foreach (var computer in computers)
 				{
-					var computerViewModel = new KomputeryViewModel()
+					var computerViewModel = new ComputersViewModel()
 					{
-						KomputerID = computer.KomputerID,
-						Nazwa = computer.Nazwa,
-						TypKomputera = computer.TypKomputera,
+						ComputerID  = computer.ComputerID,
+						Name  = computer.Name,
+						Manufacturer  = computer.Manufacturer,
 						Model = computer.Model,
-						DataZakupu = computer.DataZakupu,
-						PracownikID = computer.PracownikID
+						OperatingSystem = computer.OperatingSystem,
+						IPAddress = computer.IPAddress,
+						RAM = computer.RAM,
+						CPU = computer.CPU,
+						Storage = computer.Storage,
+						PurchaseDate = computer.PurchaseDate,
+						Accessories = computer.Accessories
 					};
 
 					computerList.Add(computerViewModel);
@@ -53,22 +58,28 @@ namespace CMDB.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Create(KomputeryViewModel computerData)
+		public IActionResult Create(ComputersViewModel computerData)
 		{
 			try
 			{
 				if (ModelState.IsValid)
 				{
-					var computer = new Komputery()
+					var computer = new Computers()
 					{
-						Nazwa = computerData.Nazwa,
-						TypKomputera = computerData.TypKomputera,
+						ComputerID  = computerData.ComputerID,
+						Name  = computerData.Name,
+						Manufacturer  = computerData.Manufacturer,
 						Model = computerData.Model,
-						DataZakupu = computerData.DataZakupu,
-						PracownikID = computerData.PracownikID
+						OperatingSystem = computerData.OperatingSystem,
+						IPAddress = computerData.IPAddress,
+						RAM = computerData.RAM,
+						CPU = computerData.CPU,
+						Storage = computerData.Storage,
+						PurchaseDate = computerData.PurchaseDate,
+						Accessories = computerData.Accessories
 					};
 
-					_context.Komputery.Add(computer);
+					_context.Computers.Add(computer);
 					_context.SaveChanges();
 
 					TempData["successMessage"] = "Computer created successfully.";

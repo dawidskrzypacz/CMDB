@@ -4,16 +4,19 @@ using CMDB.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace CMDB.Migrations
+namespace CMDB.Migrations.NetworkDevicesDb
 {
-    [DbContext(typeof(ServicesDbContext))]
-    partial class ServicesDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(NetworkDevicesDbContext))]
+    [Migration("20240602122107_NetworkDevicesDbContextCreate")]
+    partial class NetworkDevicesDbContextCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,6 +59,9 @@ namespace CMDB.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("NetworkDevicesDeviceID")
+                        .HasColumnType("int");
+
                     b.Property<int?>("PhonesPhoneID")
                         .HasColumnType("int");
 
@@ -65,9 +71,6 @@ namespace CMDB.Migrations
                     b.Property<string>("SerialNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ServersServerID")
-                        .HasColumnType("int");
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -80,9 +83,9 @@ namespace CMDB.Migrations
 
                     b.HasIndex("ComputersComputerID");
 
-                    b.HasIndex("PhonesPhoneID");
+                    b.HasIndex("NetworkDevicesDeviceID");
 
-                    b.HasIndex("ServersServerID");
+                    b.HasIndex("PhonesPhoneID");
 
                     b.ToTable("Accessories");
                 });
@@ -178,6 +181,45 @@ namespace CMDB.Migrations
                     b.ToTable("Employees");
                 });
 
+            modelBuilder.Entity("CMDB.Models.DBEntities.NetworkDevices", b =>
+                {
+                    b.Property<int>("DeviceID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DeviceID"));
+
+                    b.Property<string>("IPAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MACAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Manufacturer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Model")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PortCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PurchaseDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("DeviceID");
+
+                    b.ToTable("NetworkDevices");
+                });
+
             modelBuilder.Entity("CMDB.Models.DBEntities.Phones", b =>
                 {
                     b.Property<int>("PhoneID")
@@ -225,77 +267,6 @@ namespace CMDB.Migrations
                     b.ToTable("Phones");
                 });
 
-            modelBuilder.Entity("CMDB.Models.DBEntities.Servers", b =>
-                {
-                    b.Property<int>("ServerID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServerID"));
-
-                    b.Property<int>("CPU")
-                        .HasColumnType("int");
-
-                    b.Property<string>("IPAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Manufacturer")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Model")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OperatingSystem")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("PurchaseDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("RAM")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ServicesServiceID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Storage")
-                        .HasColumnType("int");
-
-                    b.HasKey("ServerID");
-
-                    b.HasIndex("ServicesServiceID");
-
-                    b.ToTable("Servers");
-                });
-
-            modelBuilder.Entity("CMDB.Models.DBEntities.Services", b =>
-                {
-                    b.Property<int>("ServiceID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceID"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ServiceID");
-
-                    b.ToTable("Services");
-                });
-
             modelBuilder.Entity("AccessoriesEmployees", b =>
                 {
                     b.HasOne("CMDB.Models.DBEntities.Accessories", null)
@@ -317,13 +288,13 @@ namespace CMDB.Migrations
                         .WithMany("Accessories")
                         .HasForeignKey("ComputersComputerID");
 
+                    b.HasOne("CMDB.Models.DBEntities.NetworkDevices", null)
+                        .WithMany("Accessories")
+                        .HasForeignKey("NetworkDevicesDeviceID");
+
                     b.HasOne("CMDB.Models.DBEntities.Phones", null)
                         .WithMany("Accessories")
                         .HasForeignKey("PhonesPhoneID");
-
-                    b.HasOne("CMDB.Models.DBEntities.Servers", null)
-                        .WithMany("Accessories")
-                        .HasForeignKey("ServersServerID");
                 });
 
             modelBuilder.Entity("CMDB.Models.DBEntities.Computers", b =>
@@ -340,13 +311,6 @@ namespace CMDB.Migrations
                         .HasForeignKey("EmployeesEmployeeID");
                 });
 
-            modelBuilder.Entity("CMDB.Models.DBEntities.Servers", b =>
-                {
-                    b.HasOne("CMDB.Models.DBEntities.Services", null)
-                        .WithMany("Servers")
-                        .HasForeignKey("ServicesServiceID");
-                });
-
             modelBuilder.Entity("CMDB.Models.DBEntities.Computers", b =>
                 {
                     b.Navigation("Accessories");
@@ -359,19 +323,14 @@ namespace CMDB.Migrations
                     b.Navigation("Phones");
                 });
 
+            modelBuilder.Entity("CMDB.Models.DBEntities.NetworkDevices", b =>
+                {
+                    b.Navigation("Accessories");
+                });
+
             modelBuilder.Entity("CMDB.Models.DBEntities.Phones", b =>
                 {
                     b.Navigation("Accessories");
-                });
-
-            modelBuilder.Entity("CMDB.Models.DBEntities.Servers", b =>
-                {
-                    b.Navigation("Accessories");
-                });
-
-            modelBuilder.Entity("CMDB.Models.DBEntities.Services", b =>
-                {
-                    b.Navigation("Servers");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,4 @@
-﻿@model List< CMDB.Models.AkcesoriaKomputeroweViewModel>
+﻿@model List< CMDB.Models.DBEntities.AccessoriesViewModel>
 
 @{
 	ViewData["Title"] = "Accessories Details";
@@ -30,12 +30,7 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
 		<thead>
 			<tr class="table-active">
 				<th>AkcesoriumID</th>
-				<th>Nazwa</th>
-				<th>Typ</th>
-				<th>Producent</th>
-				<th>DataZakupu</th>
-				<th>PracownikID</th>
-				<th>Akcje</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -44,17 +39,13 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
 				@foreach (var accessory in Model)
 				{
 					<tr>
-						<td>@accessory.AkcesoriumID</td>
-						<td>@accessory.Nazwa</td>
-						<td>@accessory.Typ</td>
-						<td>@accessory.Producent</td>
-						<td>@accessory.DataZakupu</td>
-						<td>@accessory.PracownikID</td>
+						<td>@accessory.AccessoryID</td>
+
 						<td>
 							<div class="btnbtn-group btn-group-sm">
-								<a asp-controller="Accessories" asp-action="Edit" asp-route-id="@accessory.AkcesoriumID" class="btn btn-primary">Edit</a>
-								<a asp-controller="Accessories" asp-action="Details" asp-route-id="@accessory.AkcesoriumID" class="btn btn-primary">Details</a>
-								<a asp-controller="Accessories" asp-action="Delete" asp-route-id="@accessory.AkcesoriumID" class="btn btn-danger">Delete</a>
+								<a asp-controller="Accessories" asp-action="Edit" asp-route-id="@accessory.AccessoryID" class="btn btn-primary">Edit</a>
+								<a asp-controller="Accessories" asp-action="Details" asp-route-id="@accessory.AccessoryID" class="btn btn-primary">Details</a>
+								<a asp-controller="Accessories" asp-action="Delete" asp-route-id="@accessory.AccessoryID" class="btn btn-danger">Delete</a>
 							</div>
 						</td>
 					</tr>

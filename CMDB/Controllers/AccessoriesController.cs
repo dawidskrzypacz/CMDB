@@ -20,21 +20,23 @@ namespace CMDB.Controllers
 		[HttpGet]
 		public IActionResult Index()
 		{
-			var accessories = _context.AkcesoriaKomputerowe.ToList();
-			var accessoryList = new List<AkcesoriaKomputeroweViewModel>();
+			var accessories = _context.Accessories.ToList();
+			var accessoryList = new List<AccessoriesViewModel>();
 
 			if (accessories != null)
 			{
 				foreach (var accessory in accessories)
 				{
-					var accessoryViewModel = new AkcesoriaKomputeroweViewModel()
+					var accessoryViewModel = new AccessoriesViewModel()
 					{
-						AkcesoriumID = accessory.AkcesoriumID,
-						Nazwa = accessory.Nazwa,
-						Typ = accessory.Typ,
-						Producent = accessory.Producent,
-						DataZakupu = accessory.DataZakupu,
-						PracownikID = accessory.PracownikID
+						AccessoryID  = accessory.AccessoryID,
+						Name  = accessory.Name,
+						Type = accessory.Type,
+						Manufacturer  = accessory.Manufacturer,
+						SerialNumber   = accessory.SerialNumber,
+						PurchaseDate  = accessory.PurchaseDate,
+						WarrantyExpiration  = accessory.WarrantyExpiration,
+						Employees   = accessory.Employees
 					};
 
 					accessoryList.Add(accessoryViewModel);
@@ -53,22 +55,25 @@ namespace CMDB.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Create(AkcesoriaKomputeroweViewModel accessoryData)
+		public IActionResult Create(AccessoriesViewModel accessoryData)
 		{
 			try
 			{
 				if (ModelState.IsValid)
 				{
-					var accessory = new AkcesoriaKomputerowe()
+					var accessory = new Accessories()
 					{
-						Nazwa = accessoryData.Nazwa,
-						Typ = accessoryData.Typ,
-						Producent = accessoryData.Producent,
-						DataZakupu = accessoryData.DataZakupu,
-						PracownikID = accessoryData.PracownikID
+						AccessoryID  = accessoryData.AccessoryID,
+						Name  = accessoryData.Name,
+						Type = accessoryData.Type,
+						Manufacturer  = accessoryData.Manufacturer,
+						SerialNumber   = accessoryData.SerialNumber,
+						PurchaseDate  = accessoryData.PurchaseDate,
+						WarrantyExpiration  = accessoryData.WarrantyExpiration,
+						Employees   = accessoryData.Employees
 					};
 
-					_context.AkcesoriaKomputerowe.Add(accessory);
+					_context.Accessories.Add(accessory);
 					_context.SaveChanges();
 
 					TempData["successMessage"] = "Accessory created successfully.";
