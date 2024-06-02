@@ -18,22 +18,26 @@ namespace CMDB.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var phones = _context.Telefony.ToList();
-            List<TelefonyViewModel> phoneList = new List<TelefonyViewModel>();
+            var phones = _context.Phones.ToList();
+            List<PhonesViewModel> phoneList = new List<PhonesViewModel>();
             if (phones != null)
             {
                 foreach (var phone in phones)
                 {
-                    var TelefonyViewModel = new TelefonyViewModel()
+                    var PhonesViewModel = new PhonesViewModel()
                     {
-                        TelefonID =  phone.TelefonID,
-                        NumerTelefonu = phone.NumerTelefonu,
-                        Typ= phone.Typ,
-                        Producent = phone.Producent,
-                        DataZakupu = phone.DataZakupu,
-                        PracownikID = phone.PracownikID
-                    };
-                    phoneList.Add(TelefonyViewModel);
+                        PhoneID =  phone.PhoneID,
+                        Name = phone.Name,
+                        Manufacturer= phone.Manufacturer,
+                        Model = phone.Model,
+                        OperatingSystem = phone.OperatingSystem,
+                        PhoneNumber = phone.PhoneNumber,
+                        Storage = phone.Storage,
+                        ScreenSize = phone.ScreenSize,
+                        PurchaseDate = phone.PurchaseDate,
+                        Accessories = phone.Accessories
+					};
+                    phoneList.Add(PhonesViewModel);
 
                 }
                 return View(phoneList);
@@ -49,22 +53,26 @@ namespace CMDB.Controllers
         }
         // GET: EmployeesController/Create
         [HttpPost]
-        public IActionResult Create(TelefonyViewModel phoneData)
+        public IActionResult Create(PhonesViewModel phoneData)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var phone = new Telefony()
+                    var phone = new Phones()
                     {
-                        TelefonID =  phoneData.TelefonID,
-                        NumerTelefonu = phoneData.NumerTelefonu,
-                        Typ= phoneData.Typ,
-                        Producent = phoneData.Producent,
-                        DataZakupu = phoneData.DataZakupu,
-                        PracownikID = phoneData.PracownikID
-                    };
-                    _context.Telefony.Add(phone);
+						PhoneID =  phoneData.PhoneID,
+						Name = phoneData.Name,
+						Manufacturer= phoneData.Manufacturer,
+						Model = phoneData.Model,
+						OperatingSystem = phoneData.OperatingSystem,
+						PhoneNumber = phoneData.PhoneNumber,
+						Storage = phoneData.Storage,
+						ScreenSize = phoneData.ScreenSize,
+						PurchaseDate = phoneData.PurchaseDate,
+						Accessories = phoneData.Accessories
+					};
+                    _context.Phones.Add(phone);
                     _context.SaveChanges();
                     TempData["successMessage"] = "Phone created";
                     return RedirectToAction("Index");

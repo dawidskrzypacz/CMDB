@@ -19,22 +19,21 @@ namespace CMDB.Controllers
 			
 		public IActionResult Index()
         {
-            var services = _context.UslugiIT.ToList();
-            List<UslugiITViewModel> serviceList = new List<UslugiITViewModel>();
+            var services = _context.Services.ToList();
+            List<ServicesViewModel> serviceList = new List<ServicesViewModel>();
             if (services != null)
             {
                 foreach (var service in services)
                 {
-                    var UslugiITViewModel = new UslugiITViewModel()
+                    var ServicesViewModel = new ServicesViewModel()
                     {
 
-                        UslugaID =  service.UslugaID,
-                        Nazwa = service.Nazwa,
-                        Opis= service.Opis,
-                        DataRozpoczecia = service.DataRozpoczecia,
-                        DataZakonczenia = service.DataZakonczenia
-                    };
-                    serviceList.Add(UslugiITViewModel);
+                        ServiceID =  service.ServiceID,
+                        Name = service.Name,
+                        Description= service.Description,
+                        Servers = service.Servers
+					};
+                    serviceList.Add(ServicesViewModel);
 
                 }
                 return View(serviceList);
@@ -50,21 +49,20 @@ namespace CMDB.Controllers
         }
         // GET: EmployeesController/Create
         [HttpPost]
-        public IActionResult Create(UslugiITViewModel serviceData)
+        public IActionResult Create(ServicesViewModel serviceData)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var service = new UslugiIT()
+                    var service = new Services()
                     {
-                        UslugaID =  serviceData.UslugaID,
-                        Nazwa = serviceData.Nazwa,
-                        Opis= serviceData.Opis,
-                        DataRozpoczecia = serviceData.DataRozpoczecia,
-                        DataZakonczenia = serviceData.DataZakonczenia
-                    };
-                    _context.UslugiIT.Add(service);
+						ServiceID =  serviceData.ServiceID,
+						Name = serviceData.Name,
+						Description= serviceData.Description,
+						Servers = serviceData.Servers
+					};
+                    _context.Services.Add(service);
                     _context.SaveChanges();
                     TempData["successMessage"] = "Service created";
                     return RedirectToAction("Index");

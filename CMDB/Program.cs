@@ -18,30 +18,34 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CMDB.Data.EmployeesDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
 ));
-builder.Services.AddDbContext<CMDB.Data.PhonesDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
-));
 builder.Services.AddDbContext<CMDB.Data.ServersDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
-));
-builder.Services.AddDbContext<CMDB.Data.ServicesDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
-));
-builder.Services.AddDbContext<CMDB.Data.IncydentsDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
-));
-builder.Services.AddDbContext<CMDB.Data.AccesoriesDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
 ));
 builder.Services.AddDbContext<CMDB.Data.ComputersDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
 ));
-builder.Services.AddDbContext<CMDB.Data.SoftwareDbContext>(options =>
+builder.Services.AddDbContext<CMDB.Data.PhonesDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
 ));
-builder.Services.AddDbContext<CMDB.Data.NetworkingDbContext>(options =>
+builder.Services.AddDbContext<CMDB.Data.PhonesDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
 ));
+builder.Services.AddDbContext<CMDB.Data.AccesoriesDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
+builder.Services.AddDbContext<CMDB.Data.ResourceRelationshipDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
+builder.Services.AddDbContext<CMDB.Data.NetworkDevicesDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
+builder.Services.AddDbContext<CMDB.Data.SoftwaresDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
+builder.Services.AddDbContext<CMDB.Data.ServicesDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+));
+
 
 
 //builder.Services.AddSingleton(builder.Configuration);

@@ -1,4 +1,4 @@
-﻿@model List< CMDB.Models.UslugiITViewModel>
+﻿@model List< CMDB.Models.DBEntities.ServicesViewModel>
 
 @{
 	ViewData["Title"] = "Services Details";
@@ -42,16 +42,13 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
 				@foreach (var service in Model)
 				{
 					<tr>
-						<td>@service.UslugaID</td>
-						<td>@service.Nazwa</td>
-						<td>@service.Opis</td>
-						<td>@service.DataRozpoczecia</td>
-						<td>@service.DataZakonczenia</td>
+						<td>@service.ServiceID</td>
+
 						<td>
 							<div class="btnbtn-group btn-group-sm">
-								<a asp-controller="Services" asp-action="Edit" asp-route-id="@service.UslugaID" class="btn btn-primary">Edit</a>
-								<a asp-controller="Services" asp-action="Details" asp-route-id="@service.UslugaID" class="btn btn-primary">Details</a>
-								<a asp-controller="Services" asp-action="Delete" asp-route-id="@service.UslugaID" class="btn btn-danger">Delete</a>
+								<a asp-controller="Services" asp-action="Edit" asp-route-id="@service.ServiceID" class="btn btn-primary">Edit</a>
+								<a asp-controller="Services" asp-action="Details" asp-route-id="@service.ServiceID" class="btn btn-primary">Details</a>
+								<a asp-controller="Services" asp-action="Delete" asp-route-id="@service.ServiceID" class="btn btn-danger">Delete</a>
 							</div>
 						</td>
 					</tr>
