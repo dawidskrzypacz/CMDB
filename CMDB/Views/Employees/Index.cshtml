@@ -3,25 +3,13 @@
 
 @{
     var pager = (PagerViewModel)ViewData["Pager"];
-    var pageSizeOptionsHtml = new System.Text.StringBuilder();
-    foreach (var size in pager.PageSizeOptions)
-    {
-        var selectedAttribute = size == pager.PageSize ? "selected=\"selected\"" : string.Empty;
-        pageSizeOptionsHtml.Append($"<option value=\"{size}\" {selectedAttribute}>{size}</option>");
-    }
 }
 
 <h1>Employees</h1>
 
 <div class="d-flex justify-content-between mb-3">
     <button asp-action="Create" asp-controller="Employees" class="btn btn-primary">Create Employee</button>
-    <form id="pageSizeForm" method="get" action="@Url.Action("Index", "Employees")" class="d-flex align-items-center">
-        <label for="pageSize" class="me-2 mb-0">Items per page:</label>
-        <select id="pageSize" name="pageSize" class="form-select w-auto" onchange="document.getElementById('pageSizeForm').submit();">
-            @Html.Raw(pageSizeOptionsHtml.ToString())
-        </select>
-        <input type="hidden" name="page" value="@pager.PageNumber" />
-    </form>
+    @Html.Partial("_PageSizeForm", pager)
 </div>
 
 <table class="table">
