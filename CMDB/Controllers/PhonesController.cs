@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CMDB.Models.DBEntities;
 using CMDB.Data;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace CMDB.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class PhonesController : Controller
     {
         private readonly PhonesDbContext _context;
