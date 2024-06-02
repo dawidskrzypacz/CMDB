@@ -34,13 +34,13 @@ namespace CMDB.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
-            var computer = _context.Employees.Find(id);
-            if (computer == null)
+            var employee = _context.Employees.Find(id);
+            if (employee == null)
             {
-                TempData["errorMessage"] = "Computer not found.";
+                TempData["errorMessage"] = "Employee not found.";
                 return RedirectToAction("Index");
             }
-            return View(computer);
+            return View(employee);
         }
 
         [HttpGet]
@@ -110,7 +110,7 @@ namespace CMDB.Controllers
                 return View(employee);
             }
         }
-
+        
         [HttpPost]
         public IActionResult DeleteConfirmed(int id)
         {

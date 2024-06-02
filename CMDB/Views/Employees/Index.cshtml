@@ -31,12 +31,11 @@
                 <td>@employee.Email</td>
                 <td>@employee.Department</td>
                 <td>
-                    <a href="@Url.Action("Details", new { id = employee.EmployeeID })">Details</a> |
-                    <a href="@Url.Action("Edit", new { id = employee.EmployeeID })">Edit</a> |
-                    <form asp-action="DeleteConfirmed" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="@employee.EmployeeID" />
-                        <button type="submit" class="btn btn-link">Delete</button>
-                    </form>
+                    <div class="btn-group btn-group-sm">
+                        <a asp-controller="Employees" asp-action="Edit" asp-route-id="@employee.EmployeeID" class="btn btn-primary">Edit</a>
+                        <a asp-controller="Employees" asp-action="Details" asp-route-id="@employee.EmployeeID" class="btn btn-primary">Details</a>
+                        <button data-url="@Url.Action("DeleteConfirmed", "Employees")" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="@employee.EmployeeID">Delete</button>
+                    </div>
                 </td>
             </tr>
         }
