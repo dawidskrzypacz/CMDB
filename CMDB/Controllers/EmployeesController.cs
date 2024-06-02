@@ -34,13 +34,13 @@ namespace CMDB.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
-            var employee = _context.Employees.Find(id);
-            if (employee == null)
+            var computer = _context.Employees.Find(id);
+            if (computer == null)
             {
-                TempData["errorMessage"] = "Employee not found.";
+                TempData["errorMessage"] = "Computer not found.";
                 return RedirectToAction("Index");
             }
-            return View(employee);
+            return View(computer);
         }
 
         [HttpGet]
