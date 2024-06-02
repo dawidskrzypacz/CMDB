@@ -6,7 +6,7 @@
 
 @{
     var urlHelper = ((IUrlHelperFactory)ViewContext.HttpContext.RequestServices.GetService(typeof(IUrlHelperFactory)))
-        .GetUrlHelper(ViewContext);
+    .GetUrlHelper(ViewContext);
 }
 
 <nav aria-label="Page navigation">
@@ -14,7 +14,9 @@
         @if (Model.CurrentPage > 1)
         {
             <li class="page-item">
-                <a class="page-link" href="@urlHelper.Action(ViewContext.RouteData.Values["action"].ToString(), new { page = Model.CurrentPage - 1, pageSize = Model.PageSize })" aria-label="Previous">
+                <a class="page-link"
+                    href="@urlHelper.Action(ViewContext.RouteData.Values["action"].ToString(), new { page = Model.CurrentPage - 1, pageSize = Model.PageSize })"
+                    aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
@@ -23,14 +25,17 @@
         @for (int i = 1; i <= Model.PageCount; i++)
         {
             <li class="page-item @(Model.CurrentPage == i ? "active" : "")">
-                <a class="page-link" href="@urlHelper.Action(ViewContext.RouteData.Values["action"].ToString(), new { page = i, pageSize = Model.PageSize })">@i</a>
+                <a class="page-link"
+                    href="@urlHelper.Action(ViewContext.RouteData.Values["action"].ToString(), new { page = i, pageSize = Model.PageSize })">@i</a>
             </li>
         }
 
         @if (Model.CurrentPage < Model.PageCount)
         {
             <li class="page-item">
-                <a class="page-link" href="@urlHelper.Action(ViewContext.RouteData.Values["action"].ToString(), new { page = Model.CurrentPage + 1, pageSize = Model.PageSize })" aria-label="Next">
+                <a class="page-link"
+                    href="@urlHelper.Action(ViewContext.RouteData.Values["action"].ToString(), new { page = Model.CurrentPage + 1, pageSize = Model.PageSize })"
+                    aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>

@@ -29,14 +29,14 @@ namespace CMDB.Controllers
 				{
 					var accessoryViewModel = new AccessoriesViewModel()
 					{
-						AccessoryID  = accessory.AccessoryID,
-						Name  = accessory.Name,
+						AccessoryID = accessory.AccessoryID,
+						Name = accessory.Name,
 						Type = accessory.Type,
-						Manufacturer  = accessory.Manufacturer,
-						SerialNumber   = accessory.SerialNumber,
-						PurchaseDate  = accessory.PurchaseDate,
-						WarrantyExpiration  = accessory.WarrantyExpiration,
-						Employees   = accessory.Employees
+						Manufacturer = accessory.Manufacturer,
+						SerialNumber = accessory.SerialNumber,
+						PurchaseDate = accessory.PurchaseDate,
+						WarrantyExpiration = accessory.WarrantyExpiration,
+						Employees = accessory.Employees
 					};
 
 					accessoryList.Add(accessoryViewModel);
@@ -63,14 +63,14 @@ namespace CMDB.Controllers
 				{
 					var accessory = new Accessories()
 					{
-						AccessoryID  = accessoryData.AccessoryID,
-						Name  = accessoryData.Name,
+						AccessoryID = accessoryData.AccessoryID,
+						Name = accessoryData.Name,
 						Type = accessoryData.Type,
-						Manufacturer  = accessoryData.Manufacturer,
-						SerialNumber   = accessoryData.SerialNumber,
-						PurchaseDate  = accessoryData.PurchaseDate,
-						WarrantyExpiration  = accessoryData.WarrantyExpiration,
-						Employees   = accessoryData.Employees
+						Manufacturer = accessoryData.Manufacturer,
+						SerialNumber = accessoryData.SerialNumber,
+						PurchaseDate = accessoryData.PurchaseDate,
+						WarrantyExpiration = accessoryData.WarrantyExpiration,
+						Employees = accessoryData.Employees
 					};
 
 					_context.Accessories.Add(accessory);

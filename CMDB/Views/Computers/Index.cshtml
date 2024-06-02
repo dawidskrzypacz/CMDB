@@ -39,9 +39,13 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
                         <td>@computer.ComputerID</td>
                         <td>
                             <div class="btn-group btn-group-sm">
-                                <a asp-controller="Computers" asp-action="Edit" asp-route-id="@computer.ComputerID" class="btn btn-primary">Edit</a>
-                                <a asp-controller="Computers" asp-action="Details" asp-route-id="@computer.ComputerID" class="btn btn-primary">Details</a>
-                                <button data-url="@Url.Action("DeleteConfirmed", "Computers")" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="@computer.ComputerID">Delete</button>
+                                <a asp-controller="Computers" asp-action="Edit" asp-route-id="@computer.ComputerID"
+                                    class="btn btn-primary">Edit</a>
+                                <a asp-controller="Computers" asp-action="Details" asp-route-id="@computer.ComputerID"
+                                    class="btn btn-primary">Details</a>
+                                <button data-url="@Url.Action("DeleteConfirmed", "Computers")" type="button"
+                                    class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                    data-id="@computer.ComputerID">Delete</button>
                             </div>
                         </td>
                     </tr>

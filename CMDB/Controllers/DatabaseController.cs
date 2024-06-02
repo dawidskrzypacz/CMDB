@@ -20,12 +20,12 @@ namespace CMDB.Controllers
                 try
                 {
                     connection.Open();
-                   
-                    return Ok("Connection successful"); 
+
+                    return Ok("Connection successful");
                 }
                 catch (SqlException)
                 {
-                    return StatusCode(500, "Database connection failed"); 
+                    return StatusCode(500, "Database connection failed");
                 }
             }
         }

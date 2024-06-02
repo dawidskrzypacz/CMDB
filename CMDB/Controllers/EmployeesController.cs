@@ -55,8 +55,8 @@ namespace CMDB.Controllers
         {
             return View();
         }
-            // GET: EmployeesController/Create
-            [HttpPost]
+        // GET: EmployeesController/Create
+        [HttpPost]
         public IActionResult Create(EmployeesViewModel employeeData)
         {
             try
@@ -65,18 +65,18 @@ namespace CMDB.Controllers
                 {
                     var employee = new Employees()
                     {
-						EmployeeID  = employeeData.EmployeeID,
-						FirstName  = employeeData.FirstName,
-						LastName = employeeData.LastName,
-						Email = employeeData.Email,
-						Department  = employeeData.Department,
-						Position  = employeeData.Position,
-						PhoneNumber  = employeeData.PhoneNumber,
-						OfficeLocation  = employeeData.OfficeLocation,
-						Computers  = employeeData.Computers,
-						Phones  = employeeData.Phones,
-						Accessories = employeeData.Accessories
-					};
+                        EmployeeID = employeeData.EmployeeID,
+                        FirstName = employeeData.FirstName,
+                        LastName = employeeData.LastName,
+                        Email = employeeData.Email,
+                        Department = employeeData.Department,
+                        Position = employeeData.Position,
+                        PhoneNumber = employeeData.PhoneNumber,
+                        OfficeLocation = employeeData.OfficeLocation,
+                        Computers = employeeData.Computers,
+                        Phones = employeeData.Phones,
+                        Accessories = employeeData.Accessories
+                    };
                     _context.Employees.Add(employee);
                     _context.SaveChanges();
                     TempData["successMessage"] = "Employee created";
@@ -95,7 +95,7 @@ namespace CMDB.Controllers
                 return View();
             }
         }
-     
-        
+
+
     }
 }
