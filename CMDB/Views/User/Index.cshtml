@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+
+<h2>Users</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>
+                    <a href="/User/Edit/@user.Id">Edit</a> |
+                    <a href="/User/Delete/@user.Id">Delete</a> |
+                    <a href="/User/AssignRole?userId=@user.Id">Assign Role</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/User/Create">Create New User</a>
