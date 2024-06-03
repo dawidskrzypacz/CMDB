@@ -1,0 +1,12 @@
+﻿@model CMDB.Controllers.AssignRoleViewModel
+
+<h2>Assign Role</h2>
+
+<form asp-action="AssignRole" method="post">
+    <input type="hidden" asp-for="UserId" />
+    <div class="form-group">
+        <label for="selectedRole">Select Role</label>
+        <select asp-for="SelectedRole" asp-items="Model.Roles" class="form-control"></select>
+    </div>
+    <button type="submit" class="btn btn-primary">Assign</button>
+</form>

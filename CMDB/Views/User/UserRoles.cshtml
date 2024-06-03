@@ -1,0 +1,19 @@
+﻿@model CMDB.Controllers.UserRolesViewModel
+
+<h2>User Roles</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var role in Model.Roles)
+        {
+            <tr>
+                <td>@role</td>
+            </tr>
+        }
+    </tbody>
+</table>
