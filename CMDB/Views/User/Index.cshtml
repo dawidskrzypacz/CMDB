@@ -2,8 +2,8 @@
 
 <h2>Users</h2>
 
-<table class="table">
-    <thead>
+<table class="table table-hover">
+    <thead class="thead-dark">
         <tr>
             <th>Username</th>
             <th>Email</th>
@@ -17,13 +17,21 @@
                 <td>@user.UserName</td>
                 <td>@user.Email</td>
                 <td>
-                    <a href="/User/Edit/@user.Id">Edit</a> |
-                    <a href="/User/Delete/@user.Id">Delete</a> |
-                    <a href="/User/AssignRole?userId=@user.Id">Assign Role</a>
+                    <a href="/User/Edit/@user.Id" class="btn btn-primary btn-sm">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a href="/User/Delete/@user.Id" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </a>
+                    <a href="/User/AssignRole?userId=@user.Id" class="btn btn-info btn-sm">
+                        <i class="fas fa-user-tag"></i> Assign Role
+                    </a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<a href="/User/Create">Create New User</a>
+<a href="/User/Create" class="btn btn-success">
+    <i class="fas fa-user-plus"></i> Create New User
+</a>

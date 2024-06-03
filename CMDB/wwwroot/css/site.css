@@ -26,3 +26,13 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+
+.btn {
+    transition: transform 0.2s;
+}
+
+    .btn:hover {
+        transform: scale(1.1);
+    }
