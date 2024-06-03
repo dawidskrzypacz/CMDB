@@ -60,3 +60,73 @@ dotnet run
 
 Aplikacja zostanie uruchomiona lokalnie i będzie dostępna pod adresem http://localhost:5271 w przeglądarce internetowej.
 
+---
+
+# Paleta Kolorów dla Projektu CMDB
+
+
+![Color Palette](ColorPalette.png)
+
+## Kolory Podstawowe
+
+### Delikatny Niebieski
+- **Hex**: #AEC6CF
+- **RGB**: 174, 198, 207
+- **HSL**: 196, 30%, 75%
+
+### Blady Różowy
+- **Hex**: #FFD1DC
+- **RGB**: 255, 209, 220
+- **HSL**: 347, 100%, 91%
+
+### Jasny Zielony
+- **Hex**: #C1E1C1
+- **RGB**: 193, 225, 193
+- **HSL**: 120, 39%, 82%
+
+### Delikatny Żółty
+- **Hex**: #FDFD96
+- **RGB**: 253, 253, 150
+- **HSL**: 60, 96%, 79%
+
+### Blady Lawendowy
+- **Hex**: #E6E6FA
+- **RGB**: 230, 230, 250
+- **HSL**: 240, 66%, 94%
+
+## Kolory Dodatkowe
+
+### Jasny Koral
+- **Hex**: #F08080
+- **RGB**: 240, 128, 128
+- **HSL**: 0, 79%, 72%
+
+### Miętowy Krem
+- **Hex**: #F5FFFA
+- **RGB**: 245, 255, 250
+- **HSL**: 150, 100%, 98%
+
+### Blady Turkusowy
+- **Hex**: #AFEEEE
+- **RGB**: 175, 238, 238
+- **HSL**: 180, 65%, 81%
+
+### Delikatna Brzoskwinia
+- **Hex**: #FFDAB9
+- **RGB**: 255, 218, 185
+- **HSL**: 28, 100%, 86%
+
+### Jasny Stalowy Niebieski
+- **Hex**: #B0C4DE
+- **RGB**: 176, 196, 222
+- **HSL**: 214, 41%, 78%
+
+## Wytyczne dotyczące użytkowania
+
+1. **Kolory Podstawowe**: Używaj tych kolorów głównie w całej aplikacji do tła, wyróżnień i głównych elementów interfejsu użytkownika.
+2. **Kolory Dodatkowe**: Te kolory mogą być używane do akcentów, przycisków i innych drobnych elementów, aby uzupełnić podstawową paletę.
+3. **Spójność**: Zapewnij spójne użycie kolorów w różnych komponentach, aby utrzymać jednolity wygląd i charakter aplikacji.
+4. **Dostępność**: Zapewnij odpowiedni kontrast między tekstem a tłem dla czytelności i dostępności.
+
+Przestrzegając tej palety kolorów, dążymy do stworzenia estetycznego i przyjaznego dla użytkownika interfejsu dla projektu CMDB.
+
