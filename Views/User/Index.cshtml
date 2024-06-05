@@ -17,12 +17,8 @@
                 <td>@user.UserName</td>
                 <td>@user.Email</td>
                 <td>
-                    <a href="/User/Edit/@user.Id" class="btn btn-primary btn-sm">
-                        <i class="fas fa-edit"></i> Edit
-                    </a>
-                    <a href="/User/Delete/@user.Id" class="btn btn-danger btn-sm">
-                        <i class="fas fa-trash-alt"></i> Delete
-                    </a>
+                    <a asp-controller="User" asp-action="Edit" asp-route-id="@user.Id" class="btn btn-primary">Edit</a>
+                    <button data-url="@Url.Action("DeleteConfirmed", "User")" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="@user.Id">Delete</button>
                     <a href="/User/AssignRole?userId=@user.Id" class="btn btn-info btn-sm">
                         <i class="fas fa-user-tag"></i> Assign Role
                     </a>
