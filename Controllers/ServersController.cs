@@ -1,6 +1,7 @@
 ﻿using CMDB.Data;
 using CMDB.Models.DBEntities;
 using CMDB.Models;
+using CMDB.ViewModels; // PAGINATION
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,91 +12,130 @@ namespace CMDB.Controllers
 	public class ServersController : Controller
 	{
 		private readonly ServersDbContext _context;
+			private readonly int[] pageSizeOptions = { 5, 10, 20 }; // PAGINATION
 
 		public ServersController(ServersDbContext context)
 		{
 			_context = context;
 		}
 
-		[HttpGet]
-		public IActionResult Index()
-		{
-			var servers = _context.Servers.ToList();
-			var serverList = new List<ServersViewModel>();
+      [HttpGet]
+		 public IActionResult Index(int page = 1, int pageSize = 5)
+        {
+            var servers = _context.Servers
+                                    .Skip((page - 1) * pageSize)
+                                    .Take(pageSize)
+                                    .ToList();
 
-			if (servers != null)
-			{
-				foreach (var server in servers)
-				{
-					var serverViewModel = new ServersViewModel()
-					{
-						ServerID = server.ServerID,
-						Name = server.Name,
-						Manufacturer = server.Manufacturer,
-						Model = server.Model,
-						OperatingSystem = server.OperatingSystem,
-						IPAddress = server.IPAddress,
-						RAM = server.RAM,
-						CPU = server.CPU,
-						Storage = server.Storage,
-						PurchaseDate = server.PurchaseDate,
-						Accessories = server.Accessories
-					};
+            var totalCount = _context.Servers.Count();
+            ViewData["Pager"] = new PagerViewModel(page, pageSize, totalCount, pageSizeOptions);
 
-					serverList.Add(serverViewModel);
-				}
+            return View(servers);
+        }
 
-				return View(serverList);
-			}
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            var server = _context.Servers.Find(id);
+            if (server == null)
+            {
+                TempData["errorMessage"] = "server not found.";
+                return RedirectToAction("Index");
+            }
+            return View(server);
+        }
 
-			return View(serverList);
-		}
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
 
-		[HttpGet]
-		public IActionResult Create()
-		{
-			return View();
-		}
+        [HttpPost]
+        public IActionResult Create(Servers server)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["errorMessage"] = "Model data is not valid.";
+                return View(server);
+            }
 
-		[HttpPost]
-		public IActionResult Create(ServersViewModel serverData)
-		{
-			try
-			{
-				if (ModelState.IsValid)
-				{
-					var server = new Servers()
-					{
-						ServerID = serverData.ServerID,
-						Name = serverData.Name,
-						Manufacturer = serverData.Manufacturer,
-						Model = serverData.Model,
-						OperatingSystem = serverData.OperatingSystem,
-						IPAddress = serverData.IPAddress,
-						RAM = serverData.RAM,
-						CPU = serverData.CPU,
-						Storage = serverData.Storage,
-						PurchaseDate = serverData.PurchaseDate,
-						Accessories = serverData.Accessories
-					};
+            try
+            {
+                _context.Servers.Add(server);
+                _context.SaveChanges();
 
-					_context.Servers.Add(server);
-					_context.SaveChanges();
+                TempData["successMessage"] = "server created successfully.";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = ex.Message;
+                return View(server);
+            }
+        }
 
-					TempData["successMessage"] = "Server created successfully.";
-					return RedirectToAction("Index");
-				}
-				else
-				{
-					TempData["errorMessage"] = "Model data is not valid.";
-					return View();
-				}
-			}
-			catch (Exception ex)
-			{
-				TempData["errorMessage"] = ex.Message;
-				return View();
-			}
-		}
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var server = _context.Servers.Find(id);
+            if (server == null)
+            {
+                TempData["errorMessage"] = "server not found.";
+                return RedirectToAction("Index");
+            }
+            return View(server);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Servers server)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    _context.Servers.Update(server);
+                    _context.SaveChanges();
+
+                    TempData["successMessage"] = "server updated successfully.";
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["errorMessage"] = "Model data is not valid.";
+                    return View(server);
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = ex.Message;
+                return View(server);
+            }
+        }
+        
+        [HttpPost]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            try
+            {
+                var server = _context.Servers.Find(id);
+                if (server == null)
+                {
+                    TempData["errorMessage"] = "server not found.";
+                    return RedirectToAction("Index");
+                }
+
+                _context.Servers.Remove(server);
+                _context.SaveChanges();
+
+                TempData["successMessage"] = "server deleted successfully.";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                TempData["errorMessage"] = ex.Message;
+                return RedirectToAction("Index");
+            }
+        }
 	}
 }
