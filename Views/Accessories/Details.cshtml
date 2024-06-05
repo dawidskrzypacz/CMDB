@@ -1,6 +1,43 @@
-﻿@{
-    ViewData["Title"] = "Accessories Module - Details";
+﻿@model CMDB.Models.DBEntities.Accessories
+
+@{
+    ViewData["Title"] = "Accessory Details";
+    var successMessage = TempData["successMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
 }
 
-
 <h1>@ViewData["Title"]</h1>
+<hr />
+
+<div class="mb-3">
+    <label class="form-label">Name</label>
+    <p class="form-control-static">@Model.Name</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Type</label>
+    <p class="form-control-static">@Model.Type</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Manufacturer</label>
+    <p class="form-control-static">@Model.Manufacturer</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">SerialNumber</label>
+    <p class="form-control-static">@Model.SerialNumber</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">PurchaseDate</label>
+    <p class="form-control-static">@Model.PurchaseDate</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">WarrantyExpiration</label>
+    <p class="form-control-static">@Model.WarrantyExpiration</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Employees</label>
+    <p class="form-control-static">@Model.Employees</p>
+</div>
+
+<div class="d-flex justify-content-between">
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
