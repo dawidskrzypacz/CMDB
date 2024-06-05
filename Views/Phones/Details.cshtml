@@ -1,6 +1,68 @@
-﻿@{
-    ViewData["Title"] = "Phones Module - Details";
+﻿@model CMDB.Models.DBEntities.Phones
+
+@{
+    ViewData["Title"] = "Phone Details";
+    var successMessage = TempData["successMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
 }
 
-
 <h1>@ViewData["Title"]</h1>
+<hr />
+
+@if (!string.IsNullOrWhiteSpace(successMessage))
+{
+    <div class="alert alert-success">
+        <strong>Success! </strong>@successMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+else if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error! </strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="mb-3">
+    <label class="form-label">Name</label>
+    <p class="form-control-static">@Model.Name</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Manufacturer</label>
+    <p class="form-control-static">@Model.Manufacturer</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Model</label>
+    <p class="form-control-static">@Model.Model</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Operating System</label>
+    <p class="form-control-static">@Model.OperatingSystem</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">PhoneNumber</label>
+    <p class="form-control-static">@Model.PhoneNumber</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Storage</label>
+    <p class="form-control-static">@Model.Storage</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">ScreenSize</label>
+    <p class="form-control-static">@Model.ScreenSize</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">PurchaseDate</label>
+    <p class="form-control-static">@Model.PurchaseDate</p>
+</div>
+
+<div class="mb-3">
+    <label class="form-label">Accessories</label>
+    <p class="form-control-static">@Model.Accessories</p>
+</div>
+
+<div class="d-flex justify-content-between">
+    <a asp-action="Edit" asp-route-id="@Model.PhoneID" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
