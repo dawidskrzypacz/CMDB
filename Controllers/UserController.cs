@@ -49,60 +49,89 @@ namespace CMDB.Controllers
             }
             return View(user);
         }
+        [HttpGet]
+public async Task<IActionResult> Edit(string id)
+{
+    var user = await _userManager.FindByIdAsync(id);
+    if (user == null)
+    {
+        return NotFound();
+    }
+    return View(user);
+}
 
-        public async Task<IActionResult> Edit(string id)
+[HttpPost]
+public async Task<IActionResult> Edit(string id, IdentityUser updatedUser)
+{
+    try
+    {
+        if (ModelState.IsValid)
         {
             var user = await _userManager.FindByIdAsync(id);
             if (user == null)
             {
-                return NotFound();
-            }
-            return View(user);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Edit(IdentityUser user)
-        {
-            if (ModelState.IsValid)
-            {
-                var result = await _userManager.UpdateAsync(user);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index");
-                }
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(string.Empty, error.Description);
-                }
-            }
-            return View(user);
-        }
-
-        public async Task<IActionResult> Delete(string id)
-        {
-            var user = await _userManager.FindByIdAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
-            return View(user);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            var user = await _userManager.FindByIdAsync(id);
-            var result = await _userManager.DeleteAsync(user);
-            if (result.Succeeded)
-            {
+                TempData["errorMessage"] = "User not found.";
                 return RedirectToAction("Index");
             }
-            foreach (var error in result.Errors)
+
+            user.UserName = updatedUser.UserName;
+            user.Email = updatedUser.Email;
+
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
             {
-                ModelState.AddModelError(string.Empty, error.Description);
+                TempData["successMessage"] = "User updated successfully.";
+                return RedirectToAction("Index");
             }
-            return View(user);
+            else
+            {
+                TempData["errorMessage"] = string.Join(", ", result.Errors.Select(e => e.Description));
+            }
         }
+        else
+        {
+            TempData["errorMessage"] = "Model data is not valid.";
+        }
+    }
+    catch (Exception ex)
+    {
+        TempData["errorMessage"] = ex.Message;
+    }
+
+    return View(updatedUser);
+}
+                
+[HttpPost]
+public async Task<IActionResult> DeleteConfirmed(string id)
+{
+    try
+    {
+        var user = await _userManager.FindByIdAsync(id);
+        if (user == null)
+        {
+            TempData["errorMessage"] = "User not found.";
+            return RedirectToAction("Index");
+        }
+
+        var result = await _userManager.DeleteAsync(user);
+        if (result.Succeeded)
+        {
+            TempData["successMessage"] = "User deleted successfully.";
+            return RedirectToAction("Index");
+        }
+        else
+        {
+            TempData["errorMessage"] = string.Join(", ", result.Errors.Select(e => e.Description));
+            return RedirectToAction("Index");
+        }
+    }
+    catch (Exception ex)
+    {
+        TempData["errorMessage"] = ex.Message;
+        return RedirectToAction("Index");
+    }
+}
+
 
         // Role management methods
         public IActionResult Roles()
