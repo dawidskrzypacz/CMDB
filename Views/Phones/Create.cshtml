@@ -1,6 +1,68 @@
-﻿@{
+﻿@model CMDB.Models.DBEntities.Phones
+
+@{
     ViewData["Title"] = "Phones Module - Create";
+    var errorMessage = TempData["errorMessage"]?.ToString();
 }
 
-
 <h1>@ViewData["Title"]</h1>
+<hr />
+
+@if (!string.IsNullOrWhiteSpace(errorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Error! </strong>@errorMessage
+        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<form action="Create" method="post">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Manufacturer</label>
+        <input type="text" class="form-control" asp-for="Manufacturer" />
+        <span asp-validation-for="Manufacturer" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Model</label>
+        <input type="text" class="form-control" asp-for="Model" />
+        <span asp-validation-for="Model" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Operating System</label>
+        <input type="text" class="form-control" asp-for="OperatingSystem" />
+        <span asp-validation-for="OperatingSystem" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">PhoneNumber</label>
+        <input type="text" class="form-control" asp-for="PhoneNumber" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Storage</label>
+        <input type="text" class="form-control" asp-for="Storage" />
+        <span asp-validation-for="Storage" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">ScreenSize</label>
+        <input type="number" class="form-control" asp-for="ScreenSize" />
+        <span asp-validation-for="ScreenSize" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">PurchaseDate</label>
+        <input type="date" class="form-control" asp-for="PurchaseDate" />
+        <span asp-validation-for="PurchaseDate" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Accessories</label>
+        <input type="text" class="form-control" asp-for="Accessories" />
+        <span asp-validation-for="Accessories" class="text-danger"></span>
+    </div>
+    <div class="d-grid">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
