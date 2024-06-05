@@ -7,7 +7,7 @@
 
 <h1>Accessories</h1>
 <div class="d-flex justify-content-between mb-3">
-  <button asp-action="Create" asp-controller="Accessories" class="btn btn-primary mb-3">Create Accessory</button>
+  <a asp-action="Create" asp-controller="Accessories" class="btn btn-primary mb-3">Create Accessory</a>
   @Html.Partial("_PageSizeForm", pager)
 </div>
 
@@ -27,14 +27,11 @@
 						<td>@accessory.AccessoryID</td>
 
 						<td>
-							<div class="btnbtn-group btn-group-sm">
-								<a asp-controller="Accessories" asp-action="Edit" asp-route-id="@accessory.AccessoryID"
-									class="btn btn-primary">Edit</a>
-								<a asp-controller="Accessories" asp-action="Details" asp-route-id="@accessory.AccessoryID"
-									class="btn btn-primary">Details</a>
-								<a asp-controller="Accessories" asp-action="Delete" asp-route-id="@accessory.AccessoryID"
-									class="btn btn-danger">Delete</a>
-							</div>
+							<div class="btn-group btn-group-sm">
+              	<a asp-controller="Accessories" asp-action="Edit" asp-route-id="@accessory.AccessoryID" class="btn btn-primary">Edit</a>
+              	<a asp-controller="Accessories" asp-action="Details" asp-route-id="@accessory.AccessoryID" class="btn btn-primary">Details</a>
+                <button data-url="@Url.Action("DeleteConfirmed", "Accessories")" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="@accessory.AccessoryID">Delete</button>
+              </div>
 						</td>
 					</tr>
 				}

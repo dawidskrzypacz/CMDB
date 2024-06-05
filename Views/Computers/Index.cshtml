@@ -26,7 +26,7 @@ else if (!string.IsNullOrWhiteSpace(errorMessage))
 }
 
     <div class="d-flex justify-content-between mb-3">
-        <button asp-action="Create" asp-controller="Computers" class="btn btn-primary mb-3">Create Computer</button>
+            <a asp-action="Create" asp-controller="Computers" class="btn btn-primary mb-3">Create Computer</a>
         @Html.Partial("_PageSizeForm", pager)
     </div>
 
