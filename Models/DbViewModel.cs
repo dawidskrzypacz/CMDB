@@ -206,5 +206,4 @@ namespace CMDB.Models.DBEntities
         public virtual ICollection<Servers> Servers { get; set; }
 
 }
-
 }
