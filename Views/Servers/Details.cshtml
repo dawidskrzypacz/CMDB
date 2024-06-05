@@ -1,6 +1,55 @@
-﻿@{
-    ViewData["Title"] = "Servers Module - Details";
+﻿@model CMDB.Models.DBEntities.Servers
+
+@{
+    ViewData["Title"] = "Servers Details";
+    var successMessage = TempData["successMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
 }
 
-
 <h1>@ViewData["Title"]</h1>
+<hr />
+
+<div class="mb-3">
+    <label class="form-label">Name</label>
+    <p class="form-control-static">@Model.Name</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Manufacturer</label>
+    <p class="form-control-static">@Model.Manufacturer</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Model</label>
+    <p class="form-control-static">@Model.Model</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">OperatingSystem</label>
+    <p class="form-control-static">@Model.OperatingSystem</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">IPAddress</label>
+    <p class="form-control-static">@Model.IPAddress</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">RAM</label>
+    <p class="form-control-static">@Model.RAM</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">CPU</label>
+    <p class="form-control-static">@Model.CPU</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Storage</label>
+    <p class="form-control-static">@Model.Storage</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">PurchaseDate</label>
+    <p class="form-control-static">@Model.PurchaseDate</p>
+</div>
+<div class="mb-3">
+    <label class="form-label">Accessories</label>
+    <p class="form-control-static">@Model.Accessories</p>
+</div>
+
+<div class="d-flex justify-content-between">
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
