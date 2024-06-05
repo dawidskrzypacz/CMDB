@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMDB", "CMDB\CMDB.csproj", "{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMDB", "CMDB.csproj", "{308F733F-293D-47F6-81B6-BFA068C5BA30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6EF02E7-0CBF-4E61-B072-069AB5D00C89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{308F733F-293D-47F6-81B6-BFA068C5BA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{308F733F-293D-47F6-81B6-BFA068C5BA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{308F733F-293D-47F6-81B6-BFA068C5BA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{308F733F-293D-47F6-81B6-BFA068C5BA30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {06BBEFE6-25F7-419A-97DD-10A45A6C1386}
+		SolutionGuid = {579B86C8-4D69-47DB-A8F9-3A63025F9372}
 	EndGlobalSection
 EndGlobal
