@@ -1,70 +1,61 @@
-﻿@model List< CMDB.Models.DBEntities.PhonesViewModel>
+﻿
+@model List<CMDB.Models.DBEntities.Phones>
+@using CMDB.ViewModels
 
 @{
-	ViewData["Title"] = "Phones Details";
-	var successMessage = TempData["successMessage"]?.ToString();
-	var errorMessage = TempData["errorMessage"]?.ToString();
+    ViewData["Title"] = "Phone Details";
+    var successMessage = TempData["successMessage"]?.ToString();
+    var errorMessage = TempData["errorMessage"]?.ToString();
+    var pager = (PagerViewModel)ViewData["Pager"];
 }
 
 <h3>@ViewData["Title"]</h3>
-@if (!string.IsNullOrWhiteSpace(successMessage))
-{
-	<div class="alert alert-success">
-		<strong>Success! </strong>@successMessage
-		<button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-	</div>
 
-}
+    <div class="d-flex justify-content-between mb-3">
+          <a asp-action="Create" asp-controller="Phones" class="btn btn-primary mb-3">Create Phone</a>
+        @Html.Partial("_PageSizeForm", pager)
+    </div>
 
-else if (!string.IsNullOrWhiteSpace(errorMessage))
-{
-	<div class="alert alert-danger">
-		<strong>Error! </strong>@errorMessage
-		<button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-	</div>
+    <table id="animated-table" class="table table-responsive table-hover table-bordered">
+        <thead>
+            <tr class="table-active">
+                <th>PhoneID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var phone in Model)
+                {
+                    <tr>
+                        <td>@phone.PhoneID</td>
+                        <td>
+                            <div class="btn-group btn-group-sm">
+                                <a asp-controller="Phones" asp-action="Edit" asp-route-id="@phone.PhoneID"
+                                    class="btn btn-primary">Edit</a>
+                                <a asp-controller="Phones" asp-action="Details" asp-route-id="@phone.PhoneID"
+                                    class="btn btn-primary">Details</a>
+                                <button data-url="@Url.Action("DeleteConfirmed", "Phones")" type="button"
+                                    class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                    data-id="@phone.PhoneID">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="2">
+                        <div>
+                            No Phones available at this moment!
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-}
-<form>
-	<button asp-action="Create" asp-controller="Phones" class="btn btn-primary mb-3">Create Employee</button>
-	<table id="animated-table" class="table table-responsive table-hover table-bordered">
-		<thead>
-			<tr class="table-active">
-				<th>TelefonID</th>
-
-				<th>Akcje</th>
-			</tr>
-		</thead>
-		<tbody>
-			@if (Model != null && Model.Any())
-			{
-				@foreach (var phone in Model)
-				{
-					<tr>
-						<td>@phone.PhoneID</td>
-
-						<td>
-							<div class="btnbtn-group btn-group-sm">
-								<a asp-controller="Phones" asp-action="Edit" asp-route-id="@phone.PhoneID"
-									class="btn btn-primary">Edit</a>
-								<a asp-controller="Phones" asp-action="Details" asp-route-id="@phone.PhoneID"
-									class="btn btn-primary">Details</a>
-								<a asp-controller="Phones" asp-action="Delete" asp-route-id="@phone.PhoneID"
-									class="btn btn-danger">Delete</a>
-							</div>
-						</td>
-					</tr>
-				}
-			}
-			else
-			{
-				<tr>
-					<td colspan="6">
-						<div>
-							No Employees available at this moment!
-						</div>
-					</td>
-				</tr>
-			}
-		</tbody>
-	</table>
-</form>
+<!-- Render partial pager -->
+@Html.Partial("_Pager", pager)
