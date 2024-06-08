@@ -27,11 +27,8 @@ namespace CMDB.Models.DBEntities
 
         public string OfficeLocation { get; set; }
 
-        public virtual ICollection<Computers> Computers { get; set; }
 
-        public virtual ICollection<Phones> Phones { get; set; }
 
-        public virtual ICollection<Accessories> Accessories { get; set; }
     }
 
     public class ServersViewModel
@@ -58,7 +55,7 @@ namespace CMDB.Models.DBEntities
 
         public DateTime PurchaseDate { get; set; }
 
-        public virtual ICollection<Accessories> Accessories { get; set; }
+
     }
 
     public class ComputersViewModel
@@ -85,7 +82,7 @@ namespace CMDB.Models.DBEntities
 
         public DateTime PurchaseDate { get; set; }
 
-        public virtual ICollection<Accessories> Accessories { get; set; }
+
     }
 
     public class PhonesViewModel
@@ -110,7 +107,7 @@ namespace CMDB.Models.DBEntities
 
         public DateTime PurchaseDate { get; set; }
 
-        public virtual ICollection<Accessories> Accessories { get; set; }
+
     }
 
     public class AccessoriesViewModel
@@ -131,7 +128,6 @@ namespace CMDB.Models.DBEntities
 
         public DateTime WarrantyExpiration { get; set; }
 
-        public virtual ICollection<Employees> Employees { get; set; }
     }
 
     public class ResourceRelationshipViewModel
@@ -171,7 +167,7 @@ namespace CMDB.Models.DBEntities
 
         public DateTime PurchaseDate { get; set; }
 
-        public virtual ICollection<Accessories> Accessories { get; set; }
+
     }
 
     public class SoftwaresViewModel
@@ -188,7 +184,6 @@ namespace CMDB.Models.DBEntities
 
         public DateTime InstallationDate { get; set; }
 
-        public virtual ICollection<Computers> Computers { get; set; }
 
 
     }
@@ -203,7 +198,7 @@ namespace CMDB.Models.DBEntities
 
         public string Description { get; set; }
 
-        public virtual ICollection<Servers> Servers { get; set; }
+
 
 }
 }

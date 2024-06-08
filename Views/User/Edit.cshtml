@@ -1,17 +1,82 @@
 ﻿@model Microsoft.AspNetCore.Identity.IdentityUser
 
+@{
+    ViewData["Title"] = "Edit - " + @Model.UserName;
+    var errorMessage = TempData["errorMessage"]?.ToString();
+}
 
-<h2>Edit User</h2>
+<style>
+    .edit-container {
+        max-width: 1000px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        padding: 20px;
+    }
+    .edit-header {
+        background: #f1efe7;
+        color: #000;
+        border-radius: 15px;
+        padding: 15px;
+        text-align: center;
+    }
+    .edit-body {
+        padding: 20px;
+    }
+    .edit-label {
+        font-weight: bold;
+        margin-right: 10px;
+        align-self: center;
+        min-width: 150px; /* Adjust the width as needed */
+    }
+    .edit-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+    .edit-row:last-child {
+        border-bottom: none;
+    }
+    .edit-footer {
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+    }
+</style>
 
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="Id" />
-    <div class="form-group">
-        <label asp-for="UserName"></label>
-        <input type="text" asp-for="UserName" class="form-control" />
+<div class="d-flex justify-content-center align-items-center">
+    <div class="edit-container">
+        <div class="edit-header">
+            <h1>@ViewData["Title"]</h1>
+        </div>
+        <div class="edit-body">
+            @if (!string.IsNullOrWhiteSpace(errorMessage))
+            {
+                <div class="alert alert-danger">
+                    <strong>Error! </strong>@errorMessage
+                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+                </div>
+            }
+
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="edit-row">
+                    <label class="edit-label" for="UserName">User Name:</label>
+                    <input type="text" class="form-control" asp-for="UserName" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="edit-row">
+                    <label class="edit-label" for="Email">Email:</label>
+                    <input type="email" class="form-control" asp-for="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="edit-footer">
+                    <button type="submit" class="btn btn-success mx-2"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+                    <a asp-action="Index" class="btn btn-secondary mx-2"><i class="fa-solid fa-backward"></i> Back to List</a>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input type="email" asp-for="Email" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary">Save</button>
-</form>
+</div>

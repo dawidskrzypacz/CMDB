@@ -1,71 +1,116 @@
 ﻿@model CMDB.Models.DBEntities.Computers
 
 @{
-    ViewData["Title"] = "Computer Details";
+    ViewData["Title"] = @Model.Name + " - Details";
     var successMessage = TempData["successMessage"]?.ToString();
     var errorMessage = TempData["errorMessage"]?.ToString();
 }
+<style>
+    .details-container {
+        max-width: 800px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        padding: 20px;
+    }
+    .details-header {
+        background: #f1efe7;
+        color: #000;
+        border-radius: 15px;
+        padding: 15px;
+        text-align: center;
+    }
+    .details-body {
+        padding: 20px;
+    }
+    .details-label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+    .details-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+    .details-row:last-child {
+        border-bottom: none;
+    }
+    .details-footer {
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+    }
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+</style>
 
-<h1>@ViewData["Title"]</h1>
-<hr />
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="details-container">
+        <div class="details-header">
+            <h1>@ViewData["Title"]</h1>
+        </div>
+        <div class="details-body">
+            @if (!string.IsNullOrWhiteSpace(successMessage))
+            {
+                <div class="alert alert-success">
+                    <strong>Success! </strong>@successMessage
+                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+                </div>
+            }
+            else if (!string.IsNullOrWhiteSpace(errorMessage))
+            {
+                <div class="alert alert-danger">
+                    <strong>Error! </strong>@errorMessage
+                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+                </div>
+            }
 
-@if (!string.IsNullOrWhiteSpace(successMessage))
-{
-    <div class="alert alert-success">
-        <strong>Success! </strong>@successMessage
-        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+            <div class="details-row">
+                <span class="details-label">Name:</span>
+                <span>@Model.Name</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">Manufacturer:</span>
+                <span>@Model.Manufacturer</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">Model:</span>
+                <span>@Model.Model</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">Operating System:</span>
+                <span>@Model.OperatingSystem</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">IP Address:</span>
+                <span>@Model.IPAddress</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">RAM:</span>
+                <span>@Model.RAM GB</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">CPU:</span>
+                <span>@Model.CPU Cores</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">Storage:</span>
+                <span>@Model.Storage GB</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">Purchase Date:</span>
+                <span>@Model.PurchaseDate.ToString("yyyy-MM-dd")</span>
+            </div>
+        </div>
+        <div class="details-footer">
+            <a asp-action="Edit" asp-route-id="@Model.ComputerID" class="btn btn-warning mx-2"><i class="fas fa-edit"></i> Edit</a>
+            <a asp-action="Index" class="btn btn-secondary mx-2"><i class="fa-solid fa-backward"></i> Back to List</a>
+        </div>
     </div>
-}
-else if (!string.IsNullOrWhiteSpace(errorMessage))
-{
-    <div class="alert alert-danger">
-        <strong>Error! </strong>@errorMessage
-        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-    </div>
-}
-
-<div class="mb-3">
-    <label class="form-label">Name</label>
-    <p class="form-control-static">@Model.Name</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">Manufacturer</label>
-    <p class="form-control-static">@Model.Manufacturer</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">Model</label>
-    <p class="form-control-static">@Model.Model</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">Operating System</label>
-    <p class="form-control-static">@Model.OperatingSystem</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">IP Address</label>
-    <p class="form-control-static">@Model.IPAddress</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">RAM</label>
-    <p class="form-control-static">@Model.RAM</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">CPU</label>
-    <p class="form-control-static">@Model.CPU</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">Storage</label>
-    <p class="form-control-static">@Model.Storage</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">Purchase Date</label>
-    <p class="form-control-static">@Model.PurchaseDate.ToString("yyyy-MM-dd")</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">Accessories</label>
-    <p class="form-control-static">@Model.Accessories</p>
-</div>
-
-<div class="d-flex justify-content-between">
-    <a asp-action="Edit" asp-route-id="@Model.ComputerID" class="btn btn-primary">Edit</a>
-    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
 </div>
