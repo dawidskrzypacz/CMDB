@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CMDB.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-dvyigZ5+72x4Plo/ydKUmFdx7MTHA59L3bfDrCBm7LY5G7AGk4uI3j7j3tqDfcb8wZCk4RcTCQbR8gVg72DJ8g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="~/lib/@@tomtom-international/web-sdk-maps/dist/maps.css" />
+    <script src="~/lib/@@tomtom-international/web-sdk-maps/dist/maps-web.min.js">
+
+    </script>
     <script src="https://kit.fontawesome.com/d84224bbde.js" crossorigin="anonymous"></script>
     <style>
         .bg-mine {
@@ -55,12 +59,11 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Servers" asp-action="Index">Servers</a>
                         </li>
                         <li class="nav-item nav-item-mine">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Infrastructure" asp-action="Index">IT Infrastructure</a>
-                        </li>
-                        <li class="nav-item nav-item-mine">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Reports" asp-action="Index">Reports</a>
                         </li>
-                        
+                            
+                            @if (User.IsInRole("Admin"))
+                        {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Admin Dashboard
@@ -70,6 +73,7 @@
                                     <a class="dropdown-item" asp-controller="User" asp-action="Roles">Role Management</a>
                                 </div>
                             </li>
+                        }
                         
                     </ul>
                     <partial name="_LoginPartial" />
@@ -108,6 +112,9 @@
     <script src="~/js/AnimatedTable.js" defer></script>
     @* --X-- Custom scripts --X-- *@
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/@@tomtom-international/web-sdk-maps/dist/maps-web.min.js">
+
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
     <script>
         $(document).ready(function () {
