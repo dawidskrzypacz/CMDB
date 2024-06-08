@@ -1,6 +1,7 @@
 ﻿using CMDB.Data;
 using CMDB.Models.DBEntities;
 using CMDB.ViewModels; // PAGINATION
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -44,12 +45,14 @@ namespace CMDB.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Create(Computers computer)
         {
             try
@@ -76,6 +79,7 @@ namespace CMDB.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Edit(int id)
         {
             var computer = _context.Computers.Find(id);
@@ -88,6 +92,7 @@ namespace CMDB.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Edit(Computers computer)
         {
             try
@@ -114,6 +119,7 @@ namespace CMDB.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult DeleteConfirmed(int id)
         {
             try

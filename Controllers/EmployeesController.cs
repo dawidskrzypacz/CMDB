@@ -1,6 +1,7 @@
 ﻿using CMDB.Data;
 using CMDB.Models.DBEntities;
 using CMDB.ViewModels; // PAGINATION
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -44,12 +45,14 @@ namespace CMDB.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Create(Employees employee)
         {
             if (!ModelState.IsValid)
@@ -74,6 +77,7 @@ namespace CMDB.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Edit(int id)
         {
             var employee = _context.Employees.Find(id);
@@ -86,6 +90,7 @@ namespace CMDB.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Edit(Employees employee)
         {
             try
@@ -112,6 +117,7 @@ namespace CMDB.Controllers
         }
         
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult DeleteConfirmed(int id)
         {
             try

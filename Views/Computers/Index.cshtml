@@ -11,7 +11,10 @@
 <h3>@ViewData["Title"]</h3>
 
 <div class="d-flex justify-content-between mb-3">
+    	@if (User.IsInRole("Admin"))
+	{
     <a asp-action="Create" asp-controller="Computers" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Create Computer</a>
+    }
     @Html.Partial("_PageSizeForm", pager)
 </div>
 
@@ -50,11 +53,14 @@
                     <td>
                             <a asp-controller="Computers" asp-action="Details" asp-route-id="@computer.ComputerID"
                                 class="btn btn-primary btn-sm"><i class="fa-solid fa-circle-info"></i> Details</a>
+                                	@if (User.IsInRole("Admin"))
+	{
                             <a asp-controller="Computers" asp-action="Edit" asp-route-id="@computer.ComputerID"
                                 class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
                             <button data-url="@Url.Action("DeleteConfirmed", "Computers")" type="button"
                                 class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal"
                                 data-id="@computer.ComputerID"><i class="fa-solid fa-trash"></i> Delete</button>
+                                }
                     </td>
                 </tr>
             }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CMDB.Controllers
 {
@@ -46,12 +47,14 @@ namespace CMDB.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Create(Servers server)
         {
             if (!ModelState.IsValid)
@@ -76,6 +79,7 @@ namespace CMDB.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Edit(int id)
         {
             var server = _context.Servers.Find(id);
@@ -88,6 +92,7 @@ namespace CMDB.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Edit(Servers server)
         {
             try
@@ -114,6 +119,7 @@ namespace CMDB.Controllers
         }
         
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult DeleteConfirmed(int id)
         {
             try

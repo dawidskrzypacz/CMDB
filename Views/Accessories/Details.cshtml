@@ -11,9 +11,10 @@
         max-width: 800px;
         background: #fff;
         border-radius: 15px;
-        box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         padding: 20px;
     }
+
     .details-header {
         background: #f1efe7;
         color: #000;
@@ -21,27 +22,33 @@
         padding: 15px;
         text-align: center;
     }
+
     .details-body {
         padding: 20px;
     }
+
     .details-label {
         font-weight: bold;
         margin-right: 10px;
     }
+
     .details-row {
         display: flex;
         justify-content: space-between;
         padding: 10px 0;
         border-bottom: 1px solid #e9ecef;
     }
+
     .details-row:last-child {
         border-bottom: none;
     }
+
     .details-footer {
         display: flex;
         justify-content: center;
         padding: 15px;
     }
+
     .profile-picture {
         width: 150px;
         height: 150px;
@@ -51,7 +58,7 @@
     }
 </style>
 
-<div class="d-flex justify-content-center align-items-center vh-100">
+<div class="d-flex justify-content-center align-items-center ">
     <div class="details-container">
         <div class="details-header">
             <h1>@ViewData["Title"]</h1>
@@ -98,7 +105,11 @@
             </div>
         </div>
         <div class="details-footer">
-            <a asp-action="Edit" asp-route-id="@Model.AccessoryID" class="btn btn-warning mx-2"><i class="fas fa-edit"></i> Edit</a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-action="Edit" asp-route-id="@Model.AccessoryID" class="btn btn-warning mx-2"><i
+                        class="fas fa-edit"></i> Edit</a>
+            }
             <a asp-action="Index" class="btn btn-secondary mx-2"><i class="fa-solid fa-backward"></i> Back to List</a>
         </div>
     </div>
