@@ -1,6 +1,34 @@
 ﻿@{
-    ViewData["Title"] = "Reports Module - Index";
+    ViewData["Title"] = "World Map";
 }
 
+<style>
+    #map {
+        height: 500px;
+        width: 1200px;
+    }
+</style>
 
-<h1>@ViewData["Title"]</h1>
+<div id="alertMessage" class="alert alert-success">
+    This alert will close automatically after 4 seconds.
+</div>
+<div id='map' class='map'></div>
+
+@section Scripts {
+    <script>
+        let map;
+
+        map = tt.map({
+            key: '@ViewData["xyP7FylI9KZIK1AQPuA8vtaqwChOV544"]',
+            container: 'map',
+            zoom: 1.5,
+            center: [0, 40],
+            style: 'tomtom://vector/1/basic-main'
+        });
+
+        // Function to auto-close alert after 4 seconds
+        setTimeout(function () {
+            document.getElementById("alertMessage").style.display = "none";
+        }, 4000);
+    </script>
+}

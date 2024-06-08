@@ -4,7 +4,12 @@
     ViewData["Title"] = "Phones Module - Create";
     var errorMessage = TempData["errorMessage"]?.ToString();
 }
-
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('PurchaseDate').value = today;
+    });
+</script>
 <style>
     .create-container {
         max-width: 1000px;
@@ -98,7 +103,7 @@
                 </div>
                 <div class="create-row">
                     <label class="create-label" for="PurchaseDate">Purchase Date:</label>
-                    <input type="date" class="form-control" asp-for="PurchaseDate" />
+                    <input type="date" class="form-control" asp-for="PurchaseDate" value="@DateTime.Now.ToString("yyyy-MM-dd")"/>
                     <span asp-validation-for="PurchaseDate" class="text-danger"></span>
                 </div>
                 <div class="create-footer">
