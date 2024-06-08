@@ -66,3 +66,111 @@ dotnet run
 Aplikacja zostanie uruchomiona lokalnie i będzie dostępna pod adresem http://localhost:5271 w przeglądarce internetowej.
 
 ---
+
+## Controllers
+
+### DatabaseController
+
+**Opis:**
+DatabaseController to kontroler odpowiedzialny za sprawdzanie połączenia z bazą danych SQL Azure.
+
+**Odpowiedzialności:**
+
+- **Metoda CheckConnection:** Metoda ta jest wywoływana przy żądaniu GET i służy do sprawdzania, czy połączenie z bazą danych może zostać nawiązane pomyślnie. Wykorzystuje ona SqlConnection do otwarcia połączenia z bazą danych przy użyciu łańcucha połączenia (connectionString). Jeśli połączenie zostanie otwarte pomyślnie, zwracany jest status OK z komunikatem "Connection successful". W przeciwnym razie zwracany jest status 500 z komunikatem "Database connection failed".
+
+### ServersController
+
+**Opis:**
+ServersController to kontroler zarządzający operacjami CRUD (Create, Read, Update, Delete) na encjach serwerów w aplikacji.
+
+**Odpowiedzialności:**
+
+- **Metoda Index:** Wyświetla listę serwerów z paginacją. Dane serwery są pobierane z kontekstu _context i paginowane według podanych parametrów page i pageSize.
+- **Metoda Details:** Wyświetla szczegóły dla konkretnego serwera na podstawie jego ID.
+- **Metoda Create (GET i POST):** Wyświetla formularz tworzenia nowego serwera (GET) oraz przetwarza dane wprowadzone w formularzu i zapisuje nowy serwer do bazy danych (POST).
+- **Metoda Edit (GET i POST):** Wyświetla formularz edycji istniejącego serwera (GET) oraz przetwarza dane z formularza i aktualizuje serwer w bazie danych (POST).
+- **Metoda DeleteConfirmed:** Usuwa serwer na podstawie podanego ID.
+- **Autoryzacja:** Metody tworzenia, edycji i usuwania serwerów są zabezpieczone i wymagają, aby użytkownik miał rolę "Admin" lub "ADMIN".
+
+### UserController
+
+**Opis:**
+UserController to kontroler zarządzający użytkownikami oraz ich rolami w systemie.
+
+**Odpowiedzialności:**
+
+- **Metoda Index:** Wyświetla listę wszystkich użytkowników.
+- **Metoda Create (GET i POST):** Wyświetla formularz tworzenia nowego użytkownika (GET) oraz przetwarza dane z formularza i tworzy nowego użytkownika w systemie (POST).
+- **Metoda Edit (GET i POST):** Wyświetla formularz edycji istniejącego użytkownika (GET) oraz przetwarza dane z formularza i aktualizuje dane użytkownika w systemie (POST).
+- **Metoda DeleteConfirmed:** Usuwa użytkownika na podstawie jego ID.
+- **Zarządzanie rolami:** Zawiera metody do zarządzania rolami użytkowników, takie jak Roles, CreateRole, AssignRole, UserRoles. Te metody umożliwiają tworzenie nowych ról, przypisywanie ról użytkownikom oraz wyświetlanie ról przypisanych do użytkownika.
+- **Autoryzacja:** Większość metod w tym kontrolerze wymaga, aby użytkownik miał rolę "Admin" lub "ADMIN".
+
+### HomeController
+
+**Opis:**
+HomeController to kontroler odpowiedzialny za obsługę strony głównej oraz strony prywatności w aplikacji.
+
+**Odpowiedzialności:**
+
+- **Metoda Index:** Wyświetla stronę główną aplikacji.
+- **Metoda Privacy:** Wyświetla stronę polityki prywatności.
+- **Metoda Error:** Wyświetla stronę błędu z informacjami o aktualnym identyfikatorze żądania i identyfikatorem śledzenia w kontekście HTTP.
+
+### PhonesController
+
+**Opis:**
+PhonesController zarządza operacjami CRUD (Create, Read, Update, Delete) na encjach telefonów w aplikacji.
+
+**Odpowiedzialności:**
+
+- **Metoda Index:** Wyświetla listę telefonów z paginacją.
+
+ Dane telefony są pobierane z kontekstu _context i paginowane według podanych parametrów page i pageSize.
+- **Metoda Details:** Wyświetla szczegóły dla konkretnego telefonu na podstawie jego ID.
+- **Metoda Create (GET i POST):** Wyświetla formularz tworzenia nowego telefonu (GET) oraz przetwarza dane wprowadzone w formularzu i zapisuje nowy telefon do bazy danych (POST).
+- **Metoda Edit (GET i POST):** Wyświetla formularz edycji istniejącego telefonu (GET) oraz przetwarza dane z formularza i aktualizuje telefon w bazie danych (POST).
+- **Metoda DeleteConfirmed:** Usuwa telefon na podstawie podanego ID.
+- **Autoryzacja:** Metody tworzenia, edycji i usuwania telefonów są zabezpieczone i wymagają, aby użytkownik miał rolę "Admin" lub "ADMIN".
+
+### ComputersController
+
+**Opis:**
+ComputersController zarządza operacjami CRUD na encjach komputerów w aplikacji.
+
+**Odpowiedzialności:**
+
+- **Metoda Index:** Wyświetla listę komputerów z paginacją. Dane komputery są pobierane z kontekstu _context i paginowane według podanych parametrów page i pageSize.
+- **Metoda Details:** Wyświetla szczegóły dla konkretnego komputera na podstawie jego ID.
+- **Metoda Create (GET i POST):** Wyświetla formularz tworzenia nowego komputera (GET) oraz przetwarza dane wprowadzone w formularzu i zapisuje nowy komputer do bazy danych (POST).
+- **Metoda Edit (GET i POST):** Wyświetla formularz edycji istniejącego komputera (GET) oraz przetwarza dane z formularza i aktualizuje komputer w bazie danych (POST).
+- **Metoda DeleteConfirmed:** Usuwa komputer na podstawie podanego ID.
+- **Autoryzacja:** Metody tworzenia, edycji i usuwania komputerów są zabezpieczone i wymagają, aby użytkownik miał rolę "Admin" lub "ADMIN".
+
+### EmployeesController
+
+**Opis:**
+EmployeesController zarządza operacjami CRUD na encjach pracowników w aplikacji.
+
+**Odpowiedzialności:**
+
+- **Metoda Index:** Wyświetla listę pracowników z paginacją. Dane pracowników są pobierane z kontekstu _context i paginowane według podanych parametrów page i pageSize.
+- **Metoda Details:** Wyświetla szczegóły dla konkretnego pracownika na podstawie jego ID.
+- **Metoda Create (GET i POST):** Wyświetla formularz tworzenia nowego pracownika (GET) oraz przetwarza dane wprowadzone w formularzu i zapisuje nowego pracownika do bazy danych (POST).
+- **Metoda Edit (GET i POST):** Wyświetla formularz edycji istniejącego pracownika (GET) oraz przetwarza dane z formularza i aktualizuje pracownika w bazie danych (POST).
+- **Metoda DeleteConfirmed:** Usuwa pracownika na podstawie podanego ID.
+- **Autoryzacja:** Metody tworzenia, edycji i usuwania pracowników są zabezpieczone i wymagają, aby użytkownik miał rolę "Admin" lub "ADMIN".
+
+### AccessoriesController
+
+**Opis:**
+AccessoriesController zarządza operacjami CRUD na encjach akcesoriów w aplikacji.
+
+**Odpowiedzialności:**
+
+- **Metoda Index:** Wyświetla listę akcesoriów z paginacją. Dane akcesoriów są pobierane z kontekstu _context i paginowane według podanych parametrów page i pageSize.
+- **Metoda Details:** Wyświetla szczegóły dla konkretnego akcesorium na podstawie jego ID.
+- **Metoda Create (GET i POST):** Wyświetla formularz tworzenia nowego akcesorium (GET) oraz przetwarza dane wprowadzone w formularzu i zapisuje nowe akcesorium do bazy danych (POST).
+- **Metoda Edit (GET i POST):** Wyświetla formularz edycji istniejącego akcesorium (GET) oraz przetwarza dane z formularza i aktualizuje akcesorium w bazie danych (POST).
+- **Metoda DeleteConfirmed:** Usuwa akcesorium na podstawie podanego ID.
+- **Autoryzacja:** Metody tworzenia, edycji i usuwania akcesoriów są zabezpieczone i wymagają, aby użytkownik miał rolę "Admin" lub "ADMIN".
