@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CMDB.Controllers
 {
-    // [Authorize(Roles = "Admin")]
     public class PhonesController : Controller
     {
         private readonly PhonesDbContext _context;
@@ -45,12 +44,14 @@ namespace CMDB.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Create(Phones phone)
         {
             try
@@ -77,6 +78,7 @@ namespace CMDB.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Edit(int id)
         {
             var phone = _context.Phones.Find(id);
@@ -89,6 +91,7 @@ namespace CMDB.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult Edit(Phones phone)
         {
             try
@@ -115,6 +118,7 @@ namespace CMDB.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public IActionResult DeleteConfirmed(int id)
         {
             try

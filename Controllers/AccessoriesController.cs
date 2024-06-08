@@ -1,6 +1,7 @@
 ﻿using CMDB.Data;
 using CMDB.Models.DBEntities;
 using CMDB.ViewModels; // PAGINATION
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -43,13 +44,13 @@ namespace CMDB.Controllers
             }
             return View(accessory);
         }
-
+        [Authorize(Roles = "Admin,ADMIN")]
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
-
+        [Authorize(Roles = "Admin,ADMIN")]
         [HttpPost]
         public IActionResult Create(Accessories accessory)
         {
@@ -73,7 +74,7 @@ namespace CMDB.Controllers
                 return View(accessory);
             }
         }
-
+        [Authorize(Roles = "Admin,ADMIN")]
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -85,7 +86,7 @@ namespace CMDB.Controllers
             }
             return View(accessory);
         }
-
+        [Authorize(Roles = "Admin,ADMIN")]
         [HttpPost]
         public IActionResult Edit(Accessories accessory)
         {
@@ -111,7 +112,7 @@ namespace CMDB.Controllers
                 return View(accessory);
             }
         }
-        
+        [Authorize(Roles = "Admin,ADMIN")]
         [HttpPost]
         public IActionResult DeleteConfirmed(int id)
         {

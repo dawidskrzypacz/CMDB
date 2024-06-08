@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CMDB.Controllers
 {
+    [Authorize(Roles = "Admin,ADMIN")]
     public class UserController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
@@ -29,6 +31,7 @@ namespace CMDB.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public async Task<IActionResult> Create(IdentityUser user, string password)
         {
             if (ModelState.IsValid)
@@ -50,6 +53,7 @@ namespace CMDB.Controllers
             return View(user);
         }
         [HttpGet]
+        [Authorize(Roles = "Admin,ADMIN")]
 public async Task<IActionResult> Edit(string id)
 {
     var user = await _userManager.FindByIdAsync(id);
@@ -61,6 +65,7 @@ public async Task<IActionResult> Edit(string id)
 }
 
 [HttpPost]
+[Authorize(Roles = "Admin,ADMIN")]
 public async Task<IActionResult> Edit(string id, IdentityUser updatedUser)
 {
     try
@@ -102,6 +107,7 @@ public async Task<IActionResult> Edit(string id, IdentityUser updatedUser)
 }
                 
 [HttpPost]
+[Authorize(Roles = "Admin,ADMIN")]
 public async Task<IActionResult> DeleteConfirmed(string id)
 {
     try
@@ -186,6 +192,7 @@ public async Task<IActionResult> DeleteConfirmed(string id)
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,ADMIN")]
         public async Task<IActionResult> AssignRole(AssignRoleViewModel model)
         {
             var user = await _userManager.FindByIdAsync(model.UserId);
@@ -226,7 +233,7 @@ public async Task<IActionResult> DeleteConfirmed(string id)
             return View(model);
         }
     }
-
+[Authorize(Roles = "Admin,ADMIN")]
     public class AssignRoleViewModel
     {
         public string UserId { get; set; }
