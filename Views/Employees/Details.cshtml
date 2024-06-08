@@ -1,43 +1,112 @@
 ﻿@model CMDB.Models.DBEntities.Employees
 
 @{
-    ViewData["Title"] = "Employee Details";
+    ViewData["Title"] = @Model.FirstName + " " + @Model.LastName + " - Details";
     var successMessage = TempData["successMessage"]?.ToString();
     var errorMessage = TempData["errorMessage"]?.ToString();
+    var profilePicturePath = Url.Content("~/Avatars/" + @Model.FirstName + @Model.LastName + ".png");
 }
 
-<h1>@ViewData["Title"]</h1>
-<hr />
+<style>
+    .details-container {
+        max-width: 800px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        padding: 20px;
+    }
+    .details-header {
+        background: #f1efe7;
+        color: #000;
+        border-radius: 15px;
+        padding: 15px;
+        text-align: center;
+    }
+    .details-body {
+        padding: 20px;
+    }
+    .details-label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+    .details-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+    .details-row:last-child {
+        border-bottom: none;
+    }
+    .details-footer {
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+    }
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+</style>
+            @if (!string.IsNullOrWhiteSpace(successMessage))
+            {
+                <div class="alert alert-success">
+                    <strong>Success! </strong>@successMessage
+                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+                </div>
+            }
+            else if (!string.IsNullOrWhiteSpace(errorMessage))
+            {
+                <div class="alert alert-danger">
+                    <strong>Error! </strong>@errorMessage
+                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+                </div>
+            }
 
-<div class="mb-3">
-    <label class="form-label">First Name</label>
-    <p class="form-control-static">@Model.FirstName</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">Last Name</label>
-    <p class="form-control-static">@Model.LastName</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">Email</label>
-    <p class="form-control-static">@Model.Email</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">Department</label>
-    <p class="form-control-static">@Model.Department</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">Position</label>
-    <p class="form-control-static">@Model.Position</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">Phone Number</label>
-    <p class="form-control-static">@Model.PhoneNumber</p>
-</div>
-<div class="mb-3">
-    <label class="form-label">Office Location</label>
-    <p class="form-control-static">@Model.OfficeLocation</p>
-</div>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="details-container">
+        <div class="details-header">
+            <h1>@ViewData["Title"]</h1>
+        </div>
+        <div class="details-body text-center">
+            <img src="@profilePicturePath" alt="Profile Picture" class="profile-picture">
+            
 
-<div class="d-flex justify-content-between">
-    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            <div class="details-row">
+                <span class="details-label">First Name:</span>
+                <span>@Model.FirstName</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">Last Name:</span>
+                <span>@Model.LastName</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">Email:</span>
+                <span>@Model.Email</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">Department:</span>
+                <span>@Model.Department</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">Position:</span>
+                <span>@Model.Position</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">Phone Number:</span>
+                <span>@Model.PhoneNumber</span>
+            </div>
+            <div class="details-row">
+                <span class="details-label">Office Location:</span>
+                <span>@Model.OfficeLocation</span>
+            </div>
+        </div>
+        <div class="details-footer">
+            <a asp-action="Edit" asp-route-id="@Model.EmployeeID" class="btn btn-warning mx-2"><i class="fas fa-edit"></i> Edit</a>
+            <a asp-action="Index" class="btn btn-secondary mx-2"><i class="fa-solid fa-backward"></i> Back to List</a>
+        </div>
+    </div>
 </div>

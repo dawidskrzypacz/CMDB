@@ -23,11 +23,7 @@ namespace CMDB.Models.DBEntities
 
         public string OfficeLocation { get; set; }
 
-        public virtual ICollection<Computers> Computers { get; set; }
 
-        public virtual ICollection<Phones> Phones { get; set; }
-
-        public virtual ICollection<Accessories> Accessories { get; set; }
     }
 
     public class Servers
@@ -54,7 +50,7 @@ namespace CMDB.Models.DBEntities
 
         public DateTime PurchaseDate { get; set; }
 
-        public virtual ICollection<Accessories> Accessories { get; set; }
+
     }
 
     public class Computers
@@ -81,7 +77,7 @@ namespace CMDB.Models.DBEntities
 
         public DateTime PurchaseDate { get; set; }
 
-        public virtual ICollection<Accessories> Accessories { get; set; }
+
     }
 
     public class Phones
@@ -106,7 +102,6 @@ namespace CMDB.Models.DBEntities
 
         public DateTime PurchaseDate { get; set; }
 
-        public virtual ICollection<Accessories> Accessories { get; set; }
     }
 
     public class Accessories
@@ -126,8 +121,6 @@ namespace CMDB.Models.DBEntities
         public DateTime PurchaseDate { get; set; }
 
         public DateTime WarrantyExpiration { get; set; }
-
-        public virtual ICollection<Employees> Employees { get; set; }
     }
 
     public class ResourceRelationship
@@ -166,7 +159,6 @@ namespace CMDB.Models.DBEntities
 
         public DateTime PurchaseDate { get; set; }
 
-        public virtual ICollection<Accessories> Accessories { get; set; }
     }
 
     public class Softwares
@@ -183,7 +175,6 @@ namespace CMDB.Models.DBEntities
 
         public DateTime InstallationDate { get; set; }
 
-        public virtual ICollection<Computers> Computers { get; set; }
 
 
     }
@@ -197,8 +188,6 @@ namespace CMDB.Models.DBEntities
         public string Name { get; set; }
 
         public string Description { get; set; }
-
-        public virtual ICollection<Servers> Servers { get; set; }
 
     }
     public class PagerOptions

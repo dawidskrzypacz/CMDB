@@ -1,4 +1,4 @@
-﻿@model List< CMDB.Models.DBEntities.Accessories>
+﻿@model List<CMDB.Models.DBEntities.Accessories>
 @using CMDB.ViewModels
 
 @{
@@ -7,47 +7,67 @@
 
 <h1>Accessories</h1>
 <div class="d-flex justify-content-between mb-3">
-  <a asp-action="Create" asp-controller="Accessories" class="btn btn-primary mb-3">Create Accessory</a>
-  @Html.Partial("_PageSizeForm", pager)
+	<a asp-action="Create" asp-controller="Accessories" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Create
+		Accessory</a>
+	@Html.Partial("_PageSizeForm", pager)
 </div>
 
-	<table id="animated-table" class="table table-responsive table-hover table-bordered">
-		<thead>
-			<tr class="table-active">
-				<th>AkcesoriumID</th>
-				<th>Action</th>
-			</tr>
-		</thead>
-		<tbody>
-			@if (Model != null && Model.Any())
-			{
-				@foreach (var accessory in Model)
-				{
-					<tr>
-						<td>@accessory.AccessoryID</td>
-
-						<td>
-							<div class="btn-group btn-group-sm">
-              	<a asp-controller="Accessories" asp-action="Edit" asp-route-id="@accessory.AccessoryID" class="btn btn-primary">Edit</a>
-              	<a asp-controller="Accessories" asp-action="Details" asp-route-id="@accessory.AccessoryID" class="btn btn-primary">Details</a>
-                <button data-url="@Url.Action("DeleteConfirmed", "Accessories")" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="@accessory.AccessoryID">Delete</button>
-              </div>
-						</td>
-					</tr>
-				}
-			}
-			else
+<table id="animated-table" class="table table-responsive table-hover table-bordered">
+	<thead>
+		<tr class="table-active">
+			<th>AccessoryID</th>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Manufacturer</th>
+			<th>Serial Number</th>
+			<th>Purchase Date</th>
+			<th>Warranty Expiration</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model != null && Model.Any())
+		{
+			@foreach (var accessory in Model)
 			{
 				<tr>
-					<td colspan="6">
-						<div>
-							No Accessories available at this moment!
-						</div>
+					<td>@accessory.AccessoryID</td>
+					<td>@accessory.Name</td>
+					<td>@accessory.Type</td>
+					<td>@accessory.Manufacturer</td>
+					<td>@accessory.SerialNumber</td>
+					<td>@accessory.PurchaseDate.ToString("yyyy-MM-dd")</td>
+					<td>@accessory.WarrantyExpiration.ToString("yyyy-MM-dd")</td>
+					<td>
+						<a asp-controller="Accessories" asp-action="Details" asp-route-id="@accessory.AccessoryID"
+							class="btn btn-primary btn-sm">
+							<i class="fa-solid fa-circle-info"></i> Details
+						</a>
+						<a asp-controller="Accessories" asp-action="Edit" asp-route-id="@accessory.AccessoryID"
+							class="btn btn-warning btn-sm">
+							<i class="fas fa-edit"></i> Edit
+						</a>
+						<button data-url="@Url.Action("DeleteConfirmed", "Accessories")" type="button"
+							class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal"
+							data-id="@accessory.AccessoryID">
+							<i class="fa-solid fa-trash"></i> Delete
+						</button>
 					</td>
 				</tr>
 			}
-		</tbody>
-	</table>
+		}
+		else
+		{
+			<tr>
+				<td colspan="8">
+					<div>
+						No Accessories available at this moment!
+					</div>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
 
 <!-- Render partial pager -->
 @Html.Partial("_Pager", pager)

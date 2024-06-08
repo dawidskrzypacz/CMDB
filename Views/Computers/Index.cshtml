@@ -1,5 +1,4 @@
-﻿
-@model List<CMDB.Models.DBEntities.Computers>
+﻿@model List<CMDB.Models.DBEntities.Computers>
 @using CMDB.ViewModels
 
 @{
@@ -11,52 +10,67 @@
 
 <h3>@ViewData["Title"]</h3>
 
+<div class="d-flex justify-content-between mb-3">
+    <a asp-action="Create" asp-controller="Computers" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Create Computer</a>
+    @Html.Partial("_PageSizeForm", pager)
+</div>
 
-    <div class="d-flex justify-content-between mb-3">
-        <a asp-action="Create" asp-controller="Computers" class="btn btn-primary mb-3">Create Computer</a>
-        @Html.Partial("_PageSizeForm", pager)
-    </div>
-
-    <table id="animated-table" class="table table-responsive table-hover table-bordered">
-        <thead>
-            <tr class="table-active">
-                <th>ComputerID</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (Model != null && Model.Any())
-            {
-                @foreach (var computer in Model)
-                {
-                    <tr>
-                        <td>@computer.ComputerID</td>
-                        <td>
-                            <div class="btn-group btn-group-sm">
-                                <a asp-controller="Computers" asp-action="Edit" asp-route-id="@computer.ComputerID"
-                                    class="btn btn-primary">Edit</a>
-                                <a asp-controller="Computers" asp-action="Details" asp-route-id="@computer.ComputerID"
-                                    class="btn btn-primary">Details</a>
-                                <button data-url="@Url.Action("DeleteConfirmed", "Computers")" type="button"
-                                    class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
-                                    data-id="@computer.ComputerID">Delete</button>
-                            </div>
-                        </td>
-                    </tr>
-                }
-            }
-            else
+<table id="animated-table" class="table table-responsive table-hover table-bordered">
+    <thead>
+        <tr class="table-active">
+            <th>ComputerID</th>
+            <th>Name</th>
+            <th>Manufacturer</th>
+            <th>Model</th>
+            <th>Operating System</th>
+            <th>IP Address</th>
+            <th>RAM</th>
+            <th>CPU</th>
+            <th>Storage</th>
+            <th>Purchase Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var computer in Model)
             {
                 <tr>
-                    <td colspan="2">
-                        <div>
-                            No Computers available at this moment!
-                        </div>
+                    <td>@computer.ComputerID</td>
+                    <td>@computer.Name</td>
+                    <td>@computer.Manufacturer</td>
+                    <td>@computer.Model</td>
+                    <td>@computer.OperatingSystem</td>
+                    <td>@computer.IPAddress</td>
+                    <td>@computer.RAM GB</td>
+                    <td>@computer.CPU Cores</td>
+                    <td>@computer.Storage GB</td>
+                    <td>@computer.PurchaseDate.ToString("yyyy-MM-dd")</td>
+                    <td>
+                            <a asp-controller="Computers" asp-action="Details" asp-route-id="@computer.ComputerID"
+                                class="btn btn-primary btn-sm"><i class="fa-solid fa-circle-info"></i> Details</a>
+                            <a asp-controller="Computers" asp-action="Edit" asp-route-id="@computer.ComputerID"
+                                class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                            <button data-url="@Url.Action("DeleteConfirmed", "Computers")" type="button"
+                                class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                data-id="@computer.ComputerID"><i class="fa-solid fa-trash"></i> Delete</button>
                     </td>
                 </tr>
             }
-        </tbody>
-    </table>
+        }
+        else
+        {
+            <tr>
+                <td colspan="11">
+                    <div>
+                        No Computers available at this moment!
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
 <!-- Render partial pager -->
 @Html.Partial("_Pager", pager)

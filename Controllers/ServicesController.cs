@@ -30,8 +30,7 @@ namespace CMDB.Controllers
 
                         ServiceID = service.ServiceID,
                         Name = service.Name,
-                        Description = service.Description,
-                        Servers = service.Servers
+                        Description = service.Description
                     };
                     serviceList.Add(ServicesViewModel);
 
@@ -59,8 +58,7 @@ namespace CMDB.Controllers
                     {
                         ServiceID = serviceData.ServiceID,
                         Name = serviceData.Name,
-                        Description = serviceData.Description,
-                        Servers = serviceData.Servers
+                        Description = serviceData.Description
                     };
                     _context.Services.Add(service);
                     _context.SaveChanges();

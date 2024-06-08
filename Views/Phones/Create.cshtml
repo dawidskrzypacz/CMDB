@@ -5,64 +5,107 @@
     var errorMessage = TempData["errorMessage"]?.ToString();
 }
 
-<h1>@ViewData["Title"]</h1>
-<hr />
+<style>
+    .create-container {
+        max-width: 1000px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        padding: 20px;
+    }
+    .create-header {
+        background: #f1efe7;
+        color: #000;
+        border-radius: 15px;
+        padding: 15px;
+        text-align: center;
+    }
+    .create-body {
+        padding: 20px;
+    }
+    .create-label {
+        font-weight: bold;
+        margin-right: 10px;
+        align-self: center;
+        min-width: 150px; /* Adjust the width as needed */
+    }
+    .create-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+    .create-row:last-child {
+        border-bottom: none;
+    }
+    .create-footer {
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+    }
+</style>
 
-@if (!string.IsNullOrWhiteSpace(errorMessage))
-{
-    <div class="alert alert-danger">
-        <strong>Error! </strong>@errorMessage
-        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-    </div>
-}
+<div class="d-flex justify-content-center align-items-center">
+    <div class="create-container">
+        <div class="create-header">
+            <h1>@ViewData["Title"]</h1>
+        </div>
+        <div class="create-body">
+            @if (!string.IsNullOrWhiteSpace(errorMessage))
+            {
+                <div class="alert alert-danger">
+                    <strong>Error! </strong>@errorMessage
+                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+                </div>
+            }
 
-<form action="Create" method="post">
-    <div class="mb-3">
-        <label class="form-label">Name</label>
-        <input type="text" class="form-control" asp-for="Name" />
-        <span asp-validation-for="Name" class="text-danger"></span>
+            <form asp-action="Create" method="post">
+                <div class="create-row">
+                    <label class="create-label" for="Name">Name:</label>
+                    <input type="text" class="form-control" asp-for="Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="create-row">
+                    <label class="create-label" for="Manufacturer">Manufacturer:</label>
+                    <input type="text" class="form-control" asp-for="Manufacturer" />
+                    <span asp-validation-for="Manufacturer" class="text-danger"></span>
+                </div>
+                <div class="create-row">
+                    <label class="create-label" for="Model">Model:</label>
+                    <input type="text" class="form-control" asp-for="Model" />
+                    <span asp-validation-for="Model" class="text-danger"></span>
+                </div>
+                <div class="create-row">
+                    <label class="create-label" for="OperatingSystem">Operating System:</label>
+                    <input type="text" class="form-control" asp-for="OperatingSystem" />
+                    <span asp-validation-for="OperatingSystem" class="text-danger"></span>
+                </div>
+                <div class="create-row">
+                    <label class="create-label" for="PhoneNumber">Phone Number:</label>
+                    <input type="text" class="form-control" asp-for="PhoneNumber" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="create-row">
+                    <label class="create-label" for="Storage">Storage:</label>
+                    <input type="text" class="form-control" asp-for="Storage" />
+                    <span asp-validation-for="Storage" class="text-danger"></span>
+                </div>
+                <div class="create-row">
+                    <label class="create-label" for="ScreenSize">Screen Size:</label>
+                    <input type="number" class="form-control" asp-for="ScreenSize" />
+                    <span asp-validation-for="ScreenSize" class="text-danger"></span>
+                </div>
+                <div class="create-row">
+                    <label class="create-label" for="PurchaseDate">Purchase Date:</label>
+                    <input type="date" class="form-control" asp-for="PurchaseDate" />
+                    <span asp-validation-for="PurchaseDate" class="text-danger"></span>
+                </div>
+                <div class="create-footer">
+                    <button type="submit" class="btn btn-success mx-2"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+                    <a asp-action="Index" class="btn btn-secondary mx-2"><i class="fa-solid fa-backward"></i> Back to List</a>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="mb-3">
-        <label class="form-label">Manufacturer</label>
-        <input type="text" class="form-control" asp-for="Manufacturer" />
-        <span asp-validation-for="Manufacturer" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Model</label>
-        <input type="text" class="form-control" asp-for="Model" />
-        <span asp-validation-for="Model" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Operating System</label>
-        <input type="text" class="form-control" asp-for="OperatingSystem" />
-        <span asp-validation-for="OperatingSystem" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">PhoneNumber</label>
-        <input type="text" class="form-control" asp-for="PhoneNumber" />
-        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Storage</label>
-        <input type="text" class="form-control" asp-for="Storage" />
-        <span asp-validation-for="Storage" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">ScreenSize</label>
-        <input type="number" class="form-control" asp-for="ScreenSize" />
-        <span asp-validation-for="ScreenSize" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">PurchaseDate</label>
-        <input type="date" class="form-control" asp-for="PurchaseDate" />
-        <span asp-validation-for="PurchaseDate" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Accessories</label>
-        <input type="text" class="form-control" asp-for="Accessories" />
-        <span asp-validation-for="Accessories" class="text-danger"></span>
-    </div>
-    <div class="d-grid">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-</form>
+</div>

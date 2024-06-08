@@ -5,69 +5,102 @@
     var errorMessage = TempData["errorMessage"]?.ToString();
 }
 
-<h1>@ViewData["Title"]</h1>
-<hr />
+<style>
+    .create-container {
+        max-width: 1000px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        padding: 20px;
+    }
+    .create-header {
+        background: #f1efe7;
+        color: #000;
+        border-radius: 15px;
+        padding: 15px;
+        text-align: center;
+    }
+    .create-body {
+        padding: 20px;
+    }
+    .create-label {
+        font-weight: bold;
+        margin-right: 10px;
+        align-self: center;
+        min-width: 150px; /* Adjust the width as needed */
+    }
+    .create-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+    .create-row:last-child {
+        border-bottom: none;
+    }
+    .create-footer {
+        display: flex;
+        justify-content: center;
+        padding: 15px;
+    }
+</style>
 
-@if (!string.IsNullOrWhiteSpace(errorMessage))
-{
-    <div class="alert alert-danger">
-        <strong>Error! </strong>@errorMessage
-        <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
-    </div>
-}
+<div class="d-flex justify-content-center align-items-center">
+    <div class="create-container">
+        <div class="create-header">
+            <h1>@ViewData["Title"]</h1>
+        </div>
+        <div class="create-body">
+            @if (!string.IsNullOrWhiteSpace(errorMessage))
+            {
+                <div class="alert alert-danger">
+                    <strong>Error! </strong>@errorMessage
+                    <button type="button" class="btn-close float-end" data-bs-dismiss="alert"></button>
+                </div>
+            }
 
-<form action="Create" method="post">
-    <div class="mb-3">
-        <label class="form-label">First Name</label>
-        <input type="text" class="form-control" asp-for="FirstName" />
-        <span asp-validation-for="FirstName" class="text-danger"></span>
+            <form asp-action="Create" method="post">
+                <div class="create-row">
+                    <label class="create-label" for="FirstName">First Name:</label>
+                    <input type="text" class="form-control" asp-for="FirstName" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="create-row">
+                    <label class="create-label" for="LastName">Last Name:</label>
+                    <input type="text" class="form-control" asp-for="LastName" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="create-row">
+                    <label class="create-label" for="Email">Email:</label>
+                    <input type="email" class="form-control" asp-for="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="create-row">
+                    <label class="create-label" for="Department">Department:</label>
+                    <input type="text" class="form-control" asp-for="Department" />
+                    <span asp-validation-for="Department" class="text-danger"></span>
+                </div>
+                <div class="create-row">
+                    <label class="create-label" for="Position">Position:</label>
+                    <input type="text" class="form-control" asp-for="Position" />
+                    <span asp-validation-for="Position" class="text-danger"></span>
+                </div>
+                <div class="create-row">
+                    <label class="create-label" for="PhoneNumber">Phone Number:</label>
+                    <input type="text" class="form-control" asp-for="PhoneNumber" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="create-row">
+                    <label class="create-label" for="OfficeLocation">Office Location:</label>
+                    <input type="text" class="form-control" asp-for="OfficeLocation" />
+                    <span asp-validation-for="OfficeLocation" class="text-danger"></span>
+                </div>
+                <div class="create-footer">
+                    <button type="submit" class="btn btn-success mx-2"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+                    <a asp-action="Index" class="btn btn-secondary mx-2"><i class="fa-solid fa-backward"></i> Back to List</a>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="mb-3">
-        <label class="form-label">Last Name</label>
-        <input type="text" class="form-control" asp-for="LastName" />
-        <span asp-validation-for="LastName" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input type="email" class="form-control" asp-for="Email" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Department</label>
-        <input type="text" class="form-control" asp-for="Department" />
-        <span asp-validation-for="Department" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Position</label>
-        <input type="text" class="form-control" asp-for="Position" />
-        <span asp-validation-for="Position" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Phone Number</label>
-        <input type="text" class="form-control" asp-for="PhoneNumber" />
-        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Office Location</label>
-        <input type="text" class="form-control" asp-for="OfficeLocation" />
-        <span asp-validation-for="OfficeLocation" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Computers</label>
-        <input type="text" class="form-control" asp-for="Computers" />
-        <span asp-validation-for="Computers" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Phones</label>
-        <input type="text" class="form-control" asp-for="Phones" />
-        <span asp-validation-for="Phones" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Accessories</label>
-        <input type="text" class="form-control" asp-for="Accessories" />
-        <span asp-validation-for="Accessories" class="text-danger"></span>
-    </div>
-    <div class="d-grid">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-</form>
+</div>

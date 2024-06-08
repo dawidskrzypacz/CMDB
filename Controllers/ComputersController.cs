@@ -20,7 +20,7 @@ namespace CMDB.Controllers
         [HttpGet]
         public IActionResult Index(int page = 1, int pageSize = 5)
         {
-            var employees = _context.Computers
+            var computer = _context.Computers
                                     .Skip((page - 1) * pageSize)
                                     .Take(pageSize)
                                     .ToList();
@@ -28,7 +28,7 @@ namespace CMDB.Controllers
             var totalCount = _context.Computers.Count();
             ViewData["Pager"] = new PagerViewModel(page, pageSize, totalCount, pageSizeOptions);
 
-            return View(employees);
+            return View(computer);
         }
 
         [HttpGet]
